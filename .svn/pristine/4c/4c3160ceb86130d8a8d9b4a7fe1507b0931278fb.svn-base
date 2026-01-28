@@ -1,0 +1,148 @@
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using PromptLibrary_Interfaces;
+using PromptLibrary_Modele.TableRef;
+using PromptLibrary_Web.Models;
+
+namespace PromptLibrary_Web.Controllers
+{
+    public class CategorieController(ICategorieService ics, IPromptServices ips) : Controller
+    {
+        private readonly ICategorieService iFrameworkSrv = ics;
+
+        public async Task<IActionResult> Index()
+        {
+            var categorie = await iFrameworkSrv.GetAllCategorieAsync();
+
+            var model = categorie.Select(f => new Categorie
+            {
+                Id = f.Id,
+                Nom = f.Nom,
+                Description = f.Description,
+            });
+
+            return View(model);
+        }
+
+        // GET: CategorieController/Details/5
+        public ActionResult Details(int id)
+        {
+            return View();
+        }
+
+        // GET: CategorieController/Create
+        public IActionResult Create()
+        {
+            return View(new Categorie());
+        }
+
+        // POST: FrameworkController/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(Categorie categorie)
+        {
+            if (ModelState.IsValid)
+            {
+                await ics.CreateCategorieAsync(categorie);
+                return RedirectToAction(nameof(Index));
+            }
+            return View(categorie);
+        }
+
+        // GET: CategorieController/Edit/5
+        public async Task<IActionResult> Edit(int id)
+        {
+            var categorie = await ics.GetById(id);
+            if (categorie == null)
+                return NotFound();
+
+
+            var vm = new Categorie
+            {
+                Id = categorie.Id,
+                Nom = categorie.Nom,
+                Description = categorie.Description,
+                IsActive = categorie.IsActive,
+
+            };
+
+            return View(vm);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+
+        public async Task<IActionResult> Edit(Categorie vm)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var categorie = new Categorie
+                    {
+                        Id = vm.Id,
+                        Nom = vm.Nom,
+                        Description = vm.Description,
+                        IsActive = vm.IsActive,
+                    };
+
+                    await ics.UpdateCategorieAsync(categorie);
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ics.IsCategorie(vm.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(vm);
+        }
+
+        // GET: CategorieController/Delete/5
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (!id.HasValue)
+            {
+                return NotFound();
+            }
+
+            var categorie = await ics.GetCategorieAsync(id.Value);
+            if (categorie == null)
+            {
+                return NotFound();
+            }
+
+            var prompts = await ips.GetPromptsWithCategorieAsync(categorie);
+
+            return View(new DeleteCategorieViewModel
+            {
+                Categorie = categorie,
+                Prompts = prompts
+            });
+        }
+
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var categorie = await ics.GetCategorieAsync(id);
+            if (categorie != null)
+            {
+                await ics.DeleteCategorieAsync(categorie);
+            }
+            return RedirectToAction(nameof(Index));
+        }
+    }
+}

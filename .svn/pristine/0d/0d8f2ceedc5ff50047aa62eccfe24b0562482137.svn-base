@@ -1,0 +1,54 @@
+﻿@using PromptLibrary_Modele.TableRef
+@model Categorie
+
+@{
+    ViewData["Title"] = "Détails de la catégorie";
+}
+
+<h1 class="mb-3">@ViewData["Title"]</h1>
+
+@if (Model == null)
+{
+    <div class="alert alert-danger">Catégorie introuvable.</div>
+}
+else
+{
+    <dl class="row">
+        <dt class="col-sm-3">Id</dt>
+        <dd class="col-sm-9">@Model.Id</dd>
+
+        <dt class="col-sm-3">Nom</dt>
+        <dd class="col-sm-9">@Model.Nom</dd>
+
+        <dt class="col-sm-3">Description</dt>
+        <dd class="col-sm-9">
+            @if (!string.IsNullOrWhiteSpace(Model.Description))
+            {
+                @Model.Description
+            }
+
+        </dd>
+    </dl>
+
+    <div class="d-flex gap-2 mt-3">
+        <a class="btn btn-warning"
+           asp-controller="Administration" asp-action="EditCategorie" asp-route-id="@Model.Id">
+            Éditer
+        </a>
+
+        <a class="btn btn-secondary"
+           asp-controller="Administration" asp-action="Index">
+            Retour
+        </a>
+
+        <form class="ms-auto"
+              asp-controller="Administration"
+              asp-action="DeleteCategorie"
+              asp-route-id="@Model.Id"
+              method="post"
+              onsubmit="return confirm('Confirmer la suppression de la catégorie ?');">
+            @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-danger">Supprimer</button>
+        </form>
+    </div>
+}

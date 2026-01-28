@@ -1,0 +1,323 @@
+﻿
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using PromptLibrary_Interfaces;
+using PromptLibrary_Modele.TableRef;
+using PromptLibrary_Web.Models;
+
+namespace PromptLibrary_Web.Controllers
+{
+    public class AdministrationController : Controller
+    {
+        private readonly ICategorieService iCategorieSrv;
+        private readonly IFrameworkService iFrameworkSrv;
+        private readonly ISubCategorieService iSubCategorieSrv;
+        private readonly IPromptServices iPromptSrv;
+
+        public AdministrationController(ICategorieService ics, IFrameworkService ifs, ISubCategorieService iss, IPromptServices ips)
+        {
+            iCategorieSrv = ics;
+            iFrameworkSrv = ifs;
+            iSubCategorieSrv = iss;
+            iPromptSrv = ips;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var vm = new AdministrationViewModel
+            {
+                Categories = (await iCategorieSrv.GetAllCategorieAsync()).ToList(),
+                Frameworks = (await iFrameworkSrv.GetAllFrameworkAsync()).ToList(),
+                SubCategories = (await iSubCategorieSrv.GetAllSubCategorieAsync()).ToList(),
+                Prompts = (await iPromptSrv.GetAllPromptAsync()).ToList()
+            };
+            return View(vm);
+        }
+
+        [HttpGet]
+        public IActionResult CreateCategorie() => View(new Categorie());
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateCategorie(Categorie categorie)
+        {
+            if (!ModelState.IsValid) return View(categorie);
+            await iCategorieSrv.CreateCategorieAsync(categorie);
+            return RedirectToAction(nameof(Index));
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> DetailCategorie(int id)
+        {
+            var categorie = await iCategorieSrv.GetCategorieAsync(id);
+            if (categorie == null) return NotFound();
+
+            return View(categorie);
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> EditCategorie(int id)
+        {
+            var categorie = await iCategorieSrv.GetById(id);
+            if (categorie == null) return NotFound();
+
+            return View(categorie);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditCategorie(Categorie vm)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(vm);
+            }
+
+
+            await iCategorieSrv.UpdateCategorieAsync(vm);
+
+
+            return RedirectToAction(nameof(Index));
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> DeleteCategorie(int id)
+        {
+            var categorie = await iCategorieSrv.GetCategorieAsync(id);
+            if (categorie == null) return NotFound();
+
+            var prompts = await iPromptSrv.GetPromptsWithCategorieAsync(categorie);
+            return View(new DeleteCategorieViewModel
+            {
+                Categorie = categorie,
+                Prompts = prompts
+            });
+        }
+
+        [HttpPost, ActionName("DeleteCategorie")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteCategorieConfirmed(int id)
+        {
+            var categorie = await iCategorieSrv.GetCategorieAsync(id);
+            if (categorie != null)
+            {
+                await iCategorieSrv.DeleteCategorieAsync(categorie);
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+
+
+        [HttpGet]
+        public IActionResult CreateFramework() => View(new Framework());
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateFramework(Framework framework)
+        {
+            if (!ModelState.IsValid) return View(framework);
+            await iFrameworkSrv.CreateFrameworkAsync(framework);
+            return RedirectToAction(nameof(Index));
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> EditFramework(int id)
+        {
+            var framework = await iFrameworkSrv.GetById(id);
+            if (framework == null)
+                return NotFound();
+
+            var vm = new Framework
+            {
+                Id = framework.Id,
+                Nom = framework.Nom,
+                Description = framework.Description,
+                Contenu = framework.Contenu,
+                IsActive = framework.IsActive
+            };
+
+            return View(vm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditFramework(Framework vm)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var framework = new Framework
+                    {
+                        Id = vm.Id,
+                        Nom = vm.Nom,
+                        Description = vm.Description,
+                        Contenu = vm.Contenu,
+                        IsActive = vm.IsActive
+                    };
+
+                    await iFrameworkSrv.UpdateFrameworkAsync(framework);
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!iFrameworkSrv.IsFramework(vm.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(vm);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> DetailFramework(int id)
+        {
+            var framework = await iFrameworkSrv.GetFrameworkAsync(id);
+            if (framework == null) return NotFound();
+
+            return View(framework);
+        }
+        [HttpGet]
+        public async Task<IActionResult> DeleteFramework(int id)
+        {
+            var framework = await iFrameworkSrv.GetFrameworkAsync(id);
+            if (framework == null) return NotFound();
+
+            var prompts = await iPromptSrv.GetPromptsWithFrameworkAsync(framework);
+            return View(new DeleteFrameworkViewModel
+            {
+                Framework = framework,
+                Prompts = prompts
+            });
+        }
+
+        [HttpPost, ActionName("DeleteFramework")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteFrameworkConfirmed(int id)
+        {
+            var framework = await iFrameworkSrv.GetFrameworkAsync(id);
+            if (framework != null)
+            {
+                await iFrameworkSrv.DeleteFrameworkAsync(framework);
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+
+
+
+
+
+        [HttpGet]
+        public IActionResult CreateSubCategorie() => View(new SubCategorie());
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateSubCategorie(SubCategorie subCategorie)
+        {
+            if (!ModelState.IsValid) return View(subCategorie);
+            await iSubCategorieSrv.CreateSubCategorieAsync(subCategorie);
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> EditSubCategorie(int id)
+        {
+            var subcategorie = await iSubCategorieSrv.GetById(id);
+            if (subcategorie == null)
+                return NotFound();
+
+            var vm = new SubCategorie
+            {
+                Id = subcategorie.Id,
+                Nom = subcategorie.Nom,
+                Description = subcategorie.Description,
+                IsActive = subcategorie.IsActive
+            };
+
+            return View(vm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditSubCategorie(SubCategorie vm)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var subCategorie = new SubCategorie
+                    {
+                        Id = vm.Id,
+                        Nom = vm.Nom,
+                        Description = vm.Description,
+                        IsActive = vm.IsActive
+                    };
+
+                    await iSubCategorieSrv.UpdateSubCategorieAsync(subCategorie);
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!iSubCategorieSrv.IsSubCategorie(vm.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(vm);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> DetailSubCategorie(int id)
+        {
+            var subcategorie = await iSubCategorieSrv.GetSubCategorieAsync(id);
+            if (subcategorie == null) return NotFound();
+
+            return View(subcategorie);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> DeleteSubCategorie(int id)
+        {
+            var subcategorie = await iSubCategorieSrv.GetSubCategorieAsync(id);
+            if (subcategorie == null) return NotFound();
+
+            var prompts = await iPromptSrv.GetPromptsWithSubCategorieAsync(subcategorie);
+            return View(new DeleteSubCategorieViewModel
+            {
+                SubCategorie = subcategorie,
+                Prompts = prompts
+            });
+        }
+
+        [HttpPost, ActionName("DeleteSubCategorie")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteSubCategorieConfirmed(int id)
+        {
+            var subcategorie = await iSubCategorieSrv.GetSubCategorieAsync(id);
+            if (subcategorie != null)
+            {
+                await iSubCategorieSrv.DeleteSubCategorieAsync(subcategorie);
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+    }
+}
+

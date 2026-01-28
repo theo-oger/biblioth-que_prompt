@@ -1,0 +1,160 @@
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using PromptLibrary_DAL.Models;
+using PromptLibrary_Interfaces;
+using PromptLibrary_Modele.TableRef;
+using PromptLibrary_Services;
+using PromptLibrary_Web.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+
+using PromptLibrary_Modele;
+
+
+namespace PromptLibrary_Web.Controllers
+{
+    public class FrameworkController( IFrameworkService ifs, IPromptServices ips) : Controller
+    {
+        private readonly IFrameworkService iFrameworkSrv = ifs;
+
+
+        public async Task<IActionResult> Index()
+        {
+            var frameworks = await iFrameworkSrv.GetAllFrameworkAsync();
+
+            var model = frameworks.Select(f => new Framework
+            {
+                Id = f.Id,
+                Nom = f.Nom,
+                Description = f.Description,
+                Contenu = f.Contenu,
+            });
+
+            return View(model); 
+        }
+
+
+
+
+        // GET: FrameworkController/Details/5
+        public ActionResult Details(int id)
+        {
+            return View();
+        }
+
+        // GET: FrameworkController/Create
+        public IActionResult Create()
+        {
+            return View(new Framework());
+        }
+
+        // POST: FrameworkController/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(Framework framework)
+        {
+            if (ModelState.IsValid)
+            {
+                await ifs.CreateFrameworkAsync(framework);
+                return RedirectToAction(nameof(Index));
+            }
+            return View(framework);
+        }
+
+        // GET: FrameworkController/Edit/5
+        public async Task<IActionResult> Edit(int id)
+        {
+            var framework = await ifs.GetById(id);
+            if (framework == null)
+                return NotFound();
+
+
+            var vm = new Framework
+            {
+                Id = framework.Id,
+                Nom = framework.Nom,
+                Description = framework.Description,
+                Contenu = framework.Contenu,
+                IsActive = framework.IsActive,
+
+            };
+
+            return View(vm);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+
+        public async Task<IActionResult> Edit(Framework vm)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var framework = new Framework
+                    {
+                        Id = vm.Id,
+                        Nom = vm.Nom,
+                        Description = vm.Description,
+                        IsActive = vm.IsActive,
+                        Contenu = vm.Contenu,
+                    };
+
+                    await ifs.UpdateFrameworkAsync(framework);
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ifs.IsFramework(vm.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(vm);
+        }
+
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (!id.HasValue)
+            {
+                return NotFound();
+            }
+
+            var framework = await ifs.GetFrameworkAsync(id.Value);
+            if (framework == null)
+            {
+                return NotFound();
+            }
+
+            var prompts = await ips.GetPromptsWithFrameworkAsync(framework);
+
+            return View(new DeleteFrameworkViewModel
+            {
+                Framework = framework,
+                Prompts = prompts
+            });
+        }
+
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var framework = await ifs.GetFrameworkAsync(id);
+            if (framework != null)
+            {
+                await ifs.DeleteFrameworkAsync(framework);
+            }
+            return RedirectToAction(nameof(Index));
+        }
+    }
+}

@@ -1,0 +1,80 @@
+﻿
+const searchBar = document.getElementById('searchBar');
+const categoryFilter = document.getElementById('categoryFilter');
+const topicFilter = document.getElementById('topicFilter');
+const framworkFilter = document.getElementById('framworkFilter');
+const likeFilter = document.getElementById('likeFilter');
+const count = document.getElementById('count');
+
+const gallery = document.getElementById('gallery');
+let cards = Array.from(document.querySelectorAll('.prompt-card'));
+
+function filterCards() {
+    const searchText = (searchBar?.value || '').toLowerCase();
+    const selectedCategory = categoryFilter?.value || 'all';
+    const selectedTopic = topicFilter?.value || 'all';
+    const selectedFrame = framworkFilter?.value || 'all';
+    const selectedLike = likeFilter?.value || 'none';
+
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+        const title = card.querySelector('h2')?.textContent.toLowerCase() || '';
+        const descriptionNodes = card.querySelectorAll('p');
+        const category = card.dataset.category;
+        const topic = card.dataset.topic;
+        const framework = card.dataset.framework;
+
+        let searchInP = false;
+        for (const p of descriptionNodes) {
+            if (p.textContent.toLowerCase().includes(searchText)) {
+                searchInP = true; break;
+            }
+        }
+
+        const matchesSearch = title.includes(searchText) || searchInP;
+        const matchesCategory = selectedCategory === 'all' || category === selectedCategory;
+        const matchesTopic = selectedTopic === 'all' || topic === selectedTopic;
+        const matchesFrame = selectedFrame === 'all' || framework === selectedFrame;
+
+        if (matchesSearch && matchesCategory && matchesTopic && matchesFrame) {
+            card.style.display = 'block';
+            visibleCount++;
+        } else {
+            card.style.display = 'none';
+        }
+    });
+
+    let visibleCards = cards.filter(c => c.style.display === 'block');
+
+    if (selectedLike === "likes_desc") {
+        visibleCards.sort((a, b) => (Number(b.dataset.like) || 0) - (Number(a.dataset.like) || 0));
+    } else if (selectedLike === "likes_asc") {
+        visibleCards.sort((a, b) => (Number(a.dataset.like) || 0) - (Number(b.dataset.like) || 0));
+    }
+
+    visibleCards.forEach(card => gallery.appendChild(card));
+
+}
+
+searchBar?.addEventListener('input', filterCards);
+categoryFilter?.addEventListener('change', filterCards);
+topicFilter?.addEventListener('change', filterCards);
+framworkFilter?.addEventListener('change', filterCards);
+likeFilter?.addEventListener('change', filterCards);
+
+
+gallery?.addEventListener('click', e => {
+    const btn = e.target.closest('.copy-btn');
+    if (!btn) return;
+
+    const card = btn.closest('.prompt-card');
+    const p = card.querySelector('p');
+
+    navigator.clipboard.writeText(p.textContent.trim())
+        .then(() => alert("Copié !"))
+        .catch(() => alert("Erreur de copie"));
+});
+
+
+filterCards();

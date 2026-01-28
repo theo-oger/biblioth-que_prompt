@@ -1,0 +1,23 @@
+﻿using Microsoft.EntityFrameworkCore;
+using PromptLibrary_DAL;
+using PromptLibrary_Interfaces;
+using PromptLibrary_Modele.TableRef;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PromptLibrary_Services
+{
+    public class FrameworkServices(PromptLibraryContext context) : IFrameworkService
+
+    {
+        private readonly PromptLibraryContext ctx = context;
+
+        public async Task<List<Framework>> GetAllFrameworkAsync()
+        {
+            return await ctx.Frameworks.ToListAsync();
+        }
+    }
+}

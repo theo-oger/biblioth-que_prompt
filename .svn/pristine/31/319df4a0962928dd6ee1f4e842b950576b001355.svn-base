@@ -1,0 +1,91 @@
+﻿@model PromptLibrary_Web.Models.CreateCardViewModel
+
+@{
+    ViewData["Title"] = "Créer un prompt";
+}
+
+<section class="page-head">
+    <h1 class="page-title"> @ViewData["Title"]</h1>
+    <p class="page-subtitle">Ajoute un nouveau prompt à la bibliothèque</p>
+</section>
+
+<form asp-action="Create" class="card form-card">
+
+    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+    <div class="mb-3">
+        <label asp-for="Titre" class="form-label"></label>
+        <input asp-for="Titre" class="form-control" />
+        <span asp-validation-for="Titre" class="text-danger"></span>
+    </div>
+
+    <div class="row g-3">
+        <div class="col-md-4">
+            <label asp-for="CategorieId" class="form-label"></label>
+            <select asp-for="CategorieId" asp-items="Model.LesCategories" class="form-select" id="categorieSelect">
+                <option value="">-- Sélectionner --</option>
+            </select>
+            <span asp-validation-for="CategorieId" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-4">
+            <label asp-for="SubCategorieId" class="form-label"></label>
+            <select asp-for="SubCategorieId" asp-items="Model.LesSubCategories" class="form-select" id="subCategorieSelect">
+                <option value="">-- Sélectionner --</option>
+            </select>
+            <span asp-validation-for="SubCategorieId" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-4">
+            <label asp-for="FrameworkId" class="form-label"></label>
+            <select asp-for="FrameworkId" asp-items="Model.LesFrameworks" class="form-select" id="frameworkSelect">
+                <option value="">-- Sélectionner --</option>
+            </select>
+            <span asp-validation-for="FrameworkId" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Content" class="form-label"></label>
+        <textarea asp-for="Content" class="form-control" rows="8"></textarea>
+        <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
+
+    <div class="form-actions">
+        <a asp-action="Index" asp-controller="Catalogue" class="btn-secondary-link">Annuler</a>
+        <input type="submit" value="Créer le prompt" class="create-btn" />
+    </div>
+</form>
+
+@section additionnalhead {
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" asp-append-version="true" />
+}
+
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const frameworkSelect = document.getElementById("frameworkSelect");
+            const contentField = document.getElementById("Content");
+
+            frameworkSelect.addEventListener("change", async () => {
+                const id = frameworkSelect.value;
+
+                if (!id) return; 
+
+                try {
+                    const response = await fetch(`/Catalogue/GetFrameworkContent/${id}`);
+
+
+                    const data = await response.json();
+
+                    contentField.value = data.content ?? "";
+
+                } catch (error) {
+                    console.error("Erreur AJAX :", error);
+                }
+            });
+        });
+    </script>
+}

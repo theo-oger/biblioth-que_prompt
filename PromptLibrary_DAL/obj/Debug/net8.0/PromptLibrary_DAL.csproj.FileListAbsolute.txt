@@ -1,0 +1,17 @@
+C:\Users\ZE00026\Documents\AI\PromptLibrary_DAL\bin\Debug\net8.0\PromptLibrary_DAL.deps.json
+C:\Users\ZE00026\Documents\AI\PromptLibrary_DAL\bin\Debug\net8.0\PromptLibrary_DAL.runtimeconfig.json
+C:\Users\ZE00026\Documents\AI\PromptLibrary_DAL\bin\Debug\net8.0\PromptLibrary_DAL.dll
+C:\Users\ZE00026\Documents\AI\PromptLibrary_DAL\bin\Debug\net8.0\PromptLibrary_DAL.pdb
+C:\Users\ZE00026\Documents\AI\PromptLibrary_DAL\bin\Debug\net8.0\PromptLibrary_Modele.dll
+C:\Users\ZE00026\Documents\AI\PromptLibrary_DAL\bin\Debug\net8.0\PromptLibrary_Modele.pdb
+C:\Users\ZE00026\Documents\AI\PromptLibrary_DAL\obj\Debug\net8.0\PromptLibrary_DAL.csproj.AssemblyReference.cache
+C:\Users\ZE00026\Documents\AI\PromptLibrary_DAL\obj\Debug\net8.0\PromptLibrary_DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ZE00026\Documents\AI\PromptLibrary_DAL\obj\Debug\net8.0\PromptLibrary_DAL.AssemblyInfoInputs.cache
+C:\Users\ZE00026\Documents\AI\PromptLibrary_DAL\obj\Debug\net8.0\PromptLibrary_DAL.AssemblyInfo.cs
+C:\Users\ZE00026\Documents\AI\PromptLibrary_DAL\obj\Debug\net8.0\PromptLibrary_DAL.csproj.CoreCompileInputs.cache
+C:\Users\ZE00026\Documents\AI\PromptLibrary_DAL\obj\Debug\net8.0\PromptLi.0229B103.Up2Date
+C:\Users\ZE00026\Documents\AI\PromptLibrary_DAL\obj\Debug\net8.0\PromptLibrary_DAL.dll
+C:\Users\ZE00026\Documents\AI\PromptLibrary_DAL\obj\Debug\net8.0\refint\PromptLibrary_DAL.dll
+C:\Users\ZE00026\Documents\AI\PromptLibrary_DAL\obj\Debug\net8.0\PromptLibrary_DAL.pdb
+C:\Users\ZE00026\Documents\AI\PromptLibrary_DAL\obj\Debug\net8.0\PromptLibrary_DAL.genruntimeconfig.cache
+C:\Users\ZE00026\Documents\AI\PromptLibrary_DAL\obj\Debug\net8.0\ref\PromptLibrary_DAL.dll

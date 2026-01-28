@@ -1,0 +1,79 @@
+﻿@using PromptLibrary_Web.Models
+@model CreateCardViewModel
+
+@{
+    ViewData["Title"] = "Modifier le prompt";
+}
+
+<section class="page-head">
+    <h1 class="page-title"> @ViewData["Title"]</h1>
+    <p class="page-subtitle">Modifie les informations de ton prompt</p>
+</section>
+
+<form asp-action="Edit" method="post" class="form-card">
+    <input type="hidden" asp-for="Id" />
+
+    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+    <div class="mb-3">
+        <label asp-for="Titre" class="form-label"></label>
+        <input asp-for="Titre" class="form-control" />
+        <span asp-validation-for="Titre" class="text-danger"></span>
+    </div>
+
+    <div class="row g-3">
+        <div class="col-md-4">
+            <label asp-for="CategorieId" class="form-label"></label>
+            <select asp-for="CategorieId" asp-items="Model.LesCategories" class="form-select">
+                <option value="">-- Sélectionner --</option>
+            </select>
+            <span asp-validation-for="CategorieId" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-4">
+            <label asp-for="SubCategorieId" class="form-label"></label>
+            <select asp-for="SubCategorieId" asp-items="Model.LesSubCategories" class="form-select">
+                <option value="">-- Sélectionner --</option>
+            </select>
+            <span asp-validation-for="SubCategorieId" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-4">
+            <label asp-for="FrameworkId" class="form-label"></label>
+            <select asp-for="FrameworkId" asp-items="Model.LesFrameworks" class="form-select">
+                <option value="">-- Sélectionner --</option>
+            </select>
+            <span asp-validation-for="FrameworkId" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Content" class="form-label"></label>
+        <textarea asp-for="Content" class="form-control" rows="8"></textarea>
+        <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
+
+    <div class="form-actions">
+        <a asp-action="Index" class="btn-secondary-link">Annuler</a>
+        <input type="submit" value="Enregistrer" class="create-btn" />
+    </div>
+
+
+    <div class="form-actions" style="justify-content:flex-start; margin-top:15px;">
+        <button type="submit"
+                class="btn-delete"
+                formaction="@Url.Action("Delete", "Catalogue", new { id = Model.Id })"
+                formmethod="post"
+                onclick="return confirm('Confirmer la suppression du prompt ?');">
+            Supprimer
+        </button>
+    </div>
+
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+@section additionnalhead {
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" asp-append-version="true" />
+}

@@ -1,0 +1,25 @@
+﻿using PromptLibrary_Modele;
+using PromptLibrary_Modele.TableRef;
+
+namespace PromptLibrary_Interfaces
+{
+    public interface IPromptServices
+    {
+        Task<List<Prompt>> GetAllAsync();
+        Task<List<Prompt>> GetAllActifAsync();
+        Task<Prompt> GetById(int id);
+        Task<bool> CreatePromptAsync(Prompt prompt);
+
+        Task<bool> UpdatePromptAsync(Prompt prompt, int FrameworkId, int categorieId, int subCategorieId);
+        bool IsPrompt(int id);
+        Task<Prompt?> GetByIdAsync(int id);
+
+        Task<List<Prompt>> GetPromptsWithFrameworkAsync(Framework framework);
+        Task<List<Prompt>> GetPromptsWithCategorieAsync(Categorie categorie);
+        Task<List<Prompt>> GetPromptsWithSubCategorieAsync(SubCategorie subcategorie);
+        Task<bool> DeletePromptAsync(Prompt prompt);
+        ValueTask<Prompt?> GetPromptAsync(int id);
+        Task<List<Prompt>> GetAllPromptAsync();
+        Task<bool> UpdateLikeAsync(int promptId, bool like);
+    }
+}

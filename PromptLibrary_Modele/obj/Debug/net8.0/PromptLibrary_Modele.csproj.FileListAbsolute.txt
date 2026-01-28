@@ -1,0 +1,11 @@
+C:\Users\ZE00026\Documents\AI\PromptLibrary_Modele\bin\Debug\net8.0\PromptLibrary_Modele.deps.json
+C:\Users\ZE00026\Documents\AI\PromptLibrary_Modele\bin\Debug\net8.0\PromptLibrary_Modele.dll
+C:\Users\ZE00026\Documents\AI\PromptLibrary_Modele\bin\Debug\net8.0\PromptLibrary_Modele.pdb
+C:\Users\ZE00026\Documents\AI\PromptLibrary_Modele\obj\Debug\net8.0\PromptLibrary_Modele.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ZE00026\Documents\AI\PromptLibrary_Modele\obj\Debug\net8.0\PromptLibrary_Modele.AssemblyInfoInputs.cache
+C:\Users\ZE00026\Documents\AI\PromptLibrary_Modele\obj\Debug\net8.0\PromptLibrary_Modele.AssemblyInfo.cs
+C:\Users\ZE00026\Documents\AI\PromptLibrary_Modele\obj\Debug\net8.0\PromptLibrary_Modele.csproj.CoreCompileInputs.cache
+C:\Users\ZE00026\Documents\AI\PromptLibrary_Modele\obj\Debug\net8.0\PromptLibrary_Modele.dll
+C:\Users\ZE00026\Documents\AI\PromptLibrary_Modele\obj\Debug\net8.0\refint\PromptLibrary_Modele.dll
+C:\Users\ZE00026\Documents\AI\PromptLibrary_Modele\obj\Debug\net8.0\PromptLibrary_Modele.pdb
+C:\Users\ZE00026\Documents\AI\PromptLibrary_Modele\obj\Debug\net8.0\ref\PromptLibrary_Modele.dll

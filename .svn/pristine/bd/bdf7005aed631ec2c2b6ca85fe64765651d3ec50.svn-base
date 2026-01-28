@@ -1,0 +1,113 @@
+﻿@model CardsViewModel
+@{
+    ViewData["Title"] = "Prompt Inspiration";
+}
+@Html.AntiForgeryToken()
+
+<header>
+
+    <div><h2>🎨 Prompts Library</h2></div>
+    <div class="filters">
+        <div id="count" style="margin:auto;"></div>
+        <input type="text" placeholder="Recherche prompts..." id="searchBar" />
+        <select id="categoryFilter">
+            <option value="all">Toutes catégories</option>
+            @foreach (string item in Model.allCategories)
+            {
+                <option value="@item">@item</option>
+            }
+        </select>
+
+
+        <select id="likeFilter">
+            <option value="none">Trier par like :</option>
+            <option value="likes_desc">Plus liké</option>
+            <option value="likes_asc">Moins liké</option>
+        </select>
+
+
+
+        <select id="topicFilter">
+            <option value="all">Tous les sujets</option>
+            @foreach (string item in Model.allSubCategories)
+            {
+                <option value="@item">@item</option>
+            }
+        </select>
+        <select id="framworkFilter">
+            <option value="all">Tous les frameworks</option>
+            @foreach (string item in Model.allframework)
+            {
+                <option value="@item">@item</option>
+            }
+        </select>
+    </div>
+
+
+    <div>
+        <a asp-action="Create" id="new-btn" class="prompt-btn">Créer un prompt</a>
+    </div>
+
+
+
+</header>
+
+<main class="gallery" id="gallery" style="padding: 50px;">
+
+    @foreach (CardViewModel item in Model.allCards)
+    {
+        <div class="prompt-card" data-id="@item.Id" data-category="@item.Categorie" data-topic="@item.SubCategorie" data-framework="@item.Framework" data-like="@item.NombreDeLike">
+            <h2>@item.Titre</h2>
+            <div class="frameworkCurrent" style="display:none;">@item.Framework</div>
+            <p>@item.Content</p>
+
+            <a asp-action="Edit" asp-route-id="@item.Id" class="edit-btn">Voir</a>         
+
+            <div class="like-area">
+                <button class="vote-btn" data-id="@item.Id" data-delta="1">
+                    👍
+                </button>
+                <button class="vote-btn" data-id="@item.Id" data-delta="-1">
+                    👎
+                </button>
+                <span class="like-count" id="like-count-@item.Id">@item.NombreDeLike</span>
+
+                <button class="copy-btn" type="button" aria-label="Copier le prompt" title="Copier le prompt">
+                    Copier
+                </button>
+
+            </div>
+
+        </div>
+    }
+</main>
+
+
+
+<script src="~/js/catalogue.js"></script>
+@section additionnalhead {
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" asp-append-version="true" />
+}
+
+
+
+<script>
+    document.addEventListener('click', async (e) => {
+      const btn = e.target.closest('.vote-btn');
+      if (!btn) return;
+
+      const id = btn.dataset.id;
+      const delta = btn.dataset.delta;
+
+      const formData = new FormData();
+      formData.append('id', id);
+      formData.append('compteur', delta);
+
+      const resp = await fetch('/Catalogue/Vote', { method: 'POST', body: formData });
+      const data = await resp.json();
+
+      if (data.success) {
+        document.getElementById(`like-count-${id}`).textContent = data.likes;
+      }
+    });
+</script>

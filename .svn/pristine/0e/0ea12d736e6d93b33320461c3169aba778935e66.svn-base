@@ -1,0 +1,138 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using PromptLibrary_Modele;
+using PromptLibrary_Modele.TableRef;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PromptLibrary_DAL
+{
+    public class SeedData
+    {
+        public static void Initialize(IServiceProvider serviceProvider)
+        {
+            using var ctx = new PromptLibraryContext(serviceProvider.GetRequiredService<DbContextOptions<PromptLibraryContext>>());
+            bool isAdded = false;
+
+            #region Framework
+
+            Dictionary<int, Framework> frameworks = new() {
+                { 1 ,new() { Nom = "RTF" }},
+                { 2 ,new() { Nom = "CARE" }},
+                { 3 ,new() { Nom = "BAB" }},
+                { 4 ,new() { Nom = "TAG" }}
+            };
+
+            foreach (var frame in frameworks.Values)
+            {
+                if (!ctx.Frameworks.Any(et => et.Nom == frame.Nom))
+                {
+                    ctx.Frameworks.Add(frame);
+                    isAdded = true;
+                }
+            }
+            ;
+            if (isAdded)
+            {
+                ctx.SaveChanges();
+                isAdded = false;
+            }
+
+            foreach (var frame in frameworks)
+            {
+                frameworks[frame.Key] = ctx.Frameworks.Single(et => et.Nom == frame.Value.Nom);
+            }
+            #endregion
+
+            #region Catégories
+
+            Dictionary<int, Categorie> categories = new() {
+                { 1 ,new() { Nom = "DEV" }},
+                { 2 ,new() { Nom = "GDP" }},
+                { 3 ,new() { Nom = "UI-UX" }},
+                { 4 ,new() { Nom = "Transverse" }}
+            };
+
+            foreach (var categorie in categories.Values)
+            {
+                if (!ctx.Categories.Any(et => et.Nom == categorie.Nom))
+                {
+                    ctx.Categories.Add(categorie);
+                    isAdded = true;
+                }
+            }
+            ;
+            if (isAdded)
+            {
+                ctx.SaveChanges();
+                isAdded = false;
+            }
+
+            foreach (var categorie in categories)
+            {
+                categories[categorie.Key] = ctx.Categories.Single(et => et.Nom == categorie.Value.Nom);
+            }
+            #endregion
+
+            #region Sous Catégories
+
+            Dictionary<int, SubCategorie> subcategories = new() {
+                { 1 ,new() { Nom = "SPFX" }},
+                { 2 ,new() { Nom = "Csharp" }}
+            };
+
+            foreach (var subcategorie in subcategories.Values)
+            {
+                if (!ctx.SubCategories.Any(et => et.Nom == subcategorie.Nom))
+                {
+                    ctx.SubCategories.Add(subcategorie);
+                    isAdded = true;
+                }
+            }
+            ;
+            if (isAdded)
+            {
+                ctx.SaveChanges();
+                isAdded = false;
+            }
+
+            foreach (var subcategorie in subcategories)
+            {
+                subcategories[subcategorie.Key] = ctx.SubCategories.Single(et => et.Nom == subcategorie.Value.Nom);
+            }
+            #endregion
+
+            #region Prompt
+
+            Dictionary<int, Prompt> prompts = new() {
+                { 1 ,new() { Titre = "Génération méthode sendMail SPFX 1.14.0", CategorieId = categories[1].Id, SubCategorieId = subcategories[1].Id, FrameworkId = frameworks[1].Id, Content = "<Rôle>\r\nAgis comme un développeur d'applications spécialiste Sharepoint Online et du framework SPFX. Tu es expert dans ce domaine.\r\n</Rôle>\r\n\r\n<Contexte>\r\nJe suis développeur de sites Sharepoint Online. Je travaille sur un projet de site qui nécessite la création d'une webpart contenant un bouton déclenchant un envoi de mail.\r\n</Contexte>\r\n\r\n<Tâche>\r\nEcris moi une méthode générique permettant d'envoyer un email.\r\nCette méthode prend en paramètre un objet contenant :\r\n - l'adresse mail des destinataires\r\n - l'adresse mail des destinataires en copie\r\n - l'objet du mail\r\n - le corps de texte du mail\r\n \r\nElle est utilisable directement dans le code du fichier .tsx de ma webpart.\r\n</Tâche>\r\n\r\n<Attentes>\r\nPrésente moi le résultat au sein d'une classe avec tous les imports nécessaires.\r\nCette classe s'appelle MailTools.\r\nLa méthode d'envoi de mail s'appelle SendMail.\r\nCela doit être compatible avec la version 1.14.0 du framework SPFX et la version 2.2 de pnp/graph\r\n</Attentes>\r\n\r\n<Exemple>\r\n</Exemple>"  }},
+                { 2 ,new() { Titre = "Benchmark webpart", CategorieId = categories[1].Id, SubCategorieId = subcategories[1].Id, Content = "<Rôle>\r\nAgis comme un expert en personnalisation de sites SharePoint Online et code SPFX.\r\n</Rôle>\r\n\r\n<Contexte>\r\nJe travaille dans un service spécialisé dans le développement d'applications informatique.\r\nNous travaillons notamment sur la création de sites SharePoint Online et nous développons parfois nos propres Webparts et extensions SPFX.\r\nJe souhaite utiliser une webpart/entensions qui XXX.\r\n</Contexte>\r\n\r\n<Tâche>\r\nListe moi les webparts ou extensions disponibles clés en main qui pourraient m'intéresser.\r\n</Tâche>\r\n\r\n<Attentes>\r\nMentionne également tes sources en me partageant leurs liens urls.\r\n</Attentes>\r\n\r\n" }}
+            };
+
+            foreach (var etat in prompts.Values)
+            {
+                if (!ctx.Prompts.Any(et => et.Titre == etat.Titre))
+                {
+                    ctx.Prompts.Add(etat);
+                    isAdded = true;
+                }
+            }
+            ;
+            if (isAdded)
+            {
+                ctx.SaveChanges();
+                isAdded = false;
+            }
+
+            foreach (var prompt in prompts)
+            {
+                prompts[prompt.Key] = ctx.Prompts.Single(et => et.Titre == prompt.Value.Titre);
+            }
+            #endregion
+
+        }
+    }
+}

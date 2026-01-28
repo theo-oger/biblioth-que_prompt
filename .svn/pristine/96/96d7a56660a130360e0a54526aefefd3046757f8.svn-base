@@ -1,0 +1,47 @@
+﻿@using PromptLibrary_Modele.TableRef
+@model SubCategorie
+
+@{
+    ViewData["Title"] = "Détails de la sous catégorie";
+}
+
+<h1 class="admin-title">@ViewData["Title"]</h1>
+
+@if (Model == null)
+{
+    <div class="alert alert-danger">Sous Catégorie introuvable.</div>
+}
+else
+{
+    <dl class="row">
+        <dt class="col-sm-3">Id</dt>
+        <dd class="col-sm-9">@Model.Id</dd>
+
+        <dt class="col-sm-3">Nom</dt>
+        <dd class="col-sm-9">@Model.Nom</dd>
+
+        <dt class="col-sm-3">Description</dt>
+        <dd class="col-sm-9">
+            @if (!string.IsNullOrWhiteSpace(Model.Description))
+            {
+                @Model.Description
+            }
+
+        </dd>
+    </dl>
+
+    <div class="d-flex gap-2 mt-3">
+        <a class="edit-btn"
+           asp-controller="Administration" asp-action="EditSubCategorie" asp-route-id="@Model.Id">
+            Éditer
+        </a>
+
+        <a class="edit-btn"
+           asp-controller="Administration" asp-action="Index">
+            Retour
+        </a>
+    </div>
+}
+@section additionnalhead {
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" asp-append-version="true" />
+}

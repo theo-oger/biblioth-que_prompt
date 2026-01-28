@@ -1,0 +1,23 @@
+﻿using Microsoft.EntityFrameworkCore;
+using PromptLibrary_DAL;
+using PromptLibrary_Interfaces;
+using PromptLibrary_Modele.TableRef;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PromptLibrary_Services
+{
+    public class CategorieSubServices(PromptLibraryContext context) : ISubCategorieService
+
+    {
+        private readonly PromptLibraryContext ctx = context;
+
+        public async Task<List<SubCategorie>> GetAllSubCategorieAsync()
+        {
+            return await ctx.SubCategories.ToListAsync();
+        }
+    }
+}

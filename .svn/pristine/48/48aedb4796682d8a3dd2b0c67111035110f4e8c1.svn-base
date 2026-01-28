@@ -1,0 +1,50 @@
+﻿// Gallery Prompt Part
+const searchBar = document.getElementById('searchBar');
+const categoryFilter = document.getElementById('categoryFilter');
+const topicFilter = document.getElementById('topicFilter');
+const framworkFilter = document.getElementById('framworkFilter');
+const count = document.getElementById('count');
+const cards = document.querySelectorAll('.prompt-card');
+
+function filterCards() {
+    const searchText = searchBar.value.toLowerCase();
+    const selectedCategory = categoryFilter.value;
+    const selectedTopic = topicFilter.value;
+    const selectedFrame = framworkFilter.value;
+    let counting = 0;
+    cards.forEach(card => {
+        
+        const title = card.querySelector('h2').textContent.toLowerCase();
+        const description = card.querySelectorAll('p');
+        const category = card.dataset.category;
+        const topic = card.dataset.topic;
+        const framework = card.dataset.framework;
+
+        let searchInP = false;
+        for (const element of description) {
+            currentp = element.textContent.toLowerCase();
+            searchInP = currentp.includes(searchText);
+            if (searchInP) {
+                break;
+            }
+        }
+        const matchesSearch = title.includes(searchText) || searchInP;
+        const matchesCategory = selectedCategory === 'all' || category === selectedCategory;
+        const matchesTopic = selectedTopic === 'all' || topic === selectedTopic;
+        const matchesFrame = selectedFrame === 'all' || framework === selectedFrame;
+
+        if (matchesSearch && matchesCategory && matchesTopic && matchesFrame) {
+            counting += 1;
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+    count.textContent = "Prompt(s) disponible : "+counting;
+}
+
+searchBar.addEventListener('input', filterCards);
+categoryFilter.addEventListener('change', filterCards);
+topicFilter.addEventListener('change', filterCards);
+framworkFilter.addEventListener('change', filterCards);
+

@@ -1,0 +1,65 @@
+﻿
+const searchBar = document.getElementById('searchBar');
+const categoryFilter = document.getElementById('categoryFilter');
+const topicFilter = document.getElementById('topicFilter');
+const framworkFilter = document.getElementById('framworkFilter');
+const likeFilter = document.getElementById('likeFilter');
+const count = document.getElementById('count');
+const gallery = document.getElementById('gallery');
+
+function filterCards() {
+    const searchText = searchBar.value.toLowerCase();
+    const selectedCategory = categoryFilter.value;
+    const selectedTopic = topicFilter.value;
+    const selectedFrame = framworkFilter.value;
+    const selectedLike = likeFilter.value;
+
+    let cards = Array.from(document.querySelectorAll('.prompt-card'));
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+        const title = card.querySelector('h2').textContent.toLowerCase();
+        const description = card.querySelectorAll('p');
+        const category = card.dataset.category;
+        const topic = card.dataset.topic;
+        const framework = card.dataset.framework;
+
+        let searchInP = false;
+        for (const element of description) {
+            if (element.textContent.toLowerCase().includes(searchText)) {
+                searchInP = true;
+                break;
+            }
+        }
+
+        const matchesSearch = title.includes(searchText) || searchInP;
+        const matchesCategory = selectedCategory === 'all' || category === selectedCategory;
+        const matchesTopic = selectedTopic === 'all' || topic === selectedTopic;
+        const matchesFrame = selectedFrame === 'all' || framework === selectedFrame;
+
+        if (matchesSearch && matchesCategory && matchesTopic && matchesFrame) {
+            card.style.display = 'block';
+            visibleCount++;
+        } else {
+            card.style.display = 'none';
+        }
+    });
+
+    let visibleCards = cards.filter(c => c.style.display === 'block');
+
+    if (selectedLike === "likes_desc") {
+        visibleCards.sort((a, b) => b.dataset.like - a.dataset.like);
+    }
+    else if (selectedLike === "likes_asc") {
+        visibleCards.sort((a, b) => a.dataset.like - b.dataset.like);
+    }
+
+    visibleCards.forEach(card => gallery.appendChild(card));
+
+}
+
+searchBar.addEventListener('input', filterCards);
+categoryFilter.addEventListener('change', filterCards);
+topicFilter.addEventListener('change', filterCards);
+framworkFilter.addEventListener('change', filterCards);
+likeFilter.addEventListener('change', filterCards);

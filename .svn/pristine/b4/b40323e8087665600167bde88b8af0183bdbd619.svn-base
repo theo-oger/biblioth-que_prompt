@@ -1,0 +1,63 @@
+﻿using Microsoft.EntityFrameworkCore;
+using PromptLibrary_DAL;
+using PromptLibrary_Interfaces;
+using PromptLibrary_Modele.TableRef;
+
+
+namespace PromptLibrary_Services
+{
+    public class CategorieSubServices(PromptLibraryContext ctx) : ISubCategorieService
+
+    {
+        private readonly PromptLibraryContext ctx = ctx;
+
+        public async Task<List<SubCategorie>> GetAllSubCategorieAsync()
+        {
+            return await ctx.SubCategories.ToListAsync();
+        }
+
+        public async Task<bool> UpdateSubCategorieAsync(SubCategorie subcategorie)
+        {
+            SubCategorie? trackedsubcategorie = await ctx.SubCategories.FindAsync(subcategorie.Id);
+            if (trackedsubcategorie is null)
+                throw new DbUpdateConcurrencyException();
+
+            ctx.Entry(trackedsubcategorie).CurrentValues.SetValues(subcategorie);
+            return await ctx.SaveChangesAsync() > 0;
+        }
+
+        public async Task<bool> CreateSubCategorieAsync(SubCategorie subcategorie)
+        {
+            ctx.Add(subcategorie);
+            return await ctx.SaveChangesAsync() > 0;
+        }
+
+        public bool IsSubCategorie(int id)
+        {
+            return ctx.SubCategories.Any(e => e.Id == id);
+        }
+
+        public async Task<SubCategorie> GetById(int id)
+        {
+            return await ctx.SubCategories.SingleAsync(et => et.Id == id);
+        }
+
+        public async ValueTask<SubCategorie?> GetSubCategorieAsync(int id)
+        {
+            return await ctx.SubCategories.FindAsync(id);
+        }
+
+        public async Task<bool> DeleteSubCategorieAsync(SubCategorie subcategorie)
+        {
+            SubCategorie? trackedSubCategorie = await ctx.SubCategories.FindAsync(subcategorie.Id);
+            if (null == trackedSubCategorie)
+            {
+                throw new DbUpdateConcurrencyException();
+            }
+
+            await ctx.Prompts.Where(fi => fi.SubCategorie == trackedSubCategorie).ForEachAsync(fi => fi.SubCategorie = null);
+            ctx.Remove(trackedSubCategorie!);
+            return await ctx.SaveChangesAsync() > 0;
+        }
+    }
+}

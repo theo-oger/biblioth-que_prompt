@@ -1,0 +1,161 @@
+﻿@using PromptLibrary_Web.Models
+
+@model AdministrationViewModel
+
+<h2>Catégories</h2>
+
+<div class="d-flex justify-content-between align-items-center mb-2">
+    <a class="btn btn-primary"
+       asp-controller="Administration" asp-action="CreateCategorie">
+        + Créer une catégorie
+    </a>
+</div>
+
+<table class="table">
+    <thead><tr><th>Nom</th><th>Description</th><th>Actions</th></tr></thead>
+    <tbody>
+        @foreach (var c in Model.Categories)
+        {
+            <tr>
+                <td>@c.Nom</td>
+                <td>@c.Description</td>
+                <td>
+                    <a class="btn btn-sm btn-info" asp-controller="Administration" asp-action="DetailCategorie" asp-route-id="@c.Id">Détails</a>
+                    <a class="btn btn-sm btn-warning" asp-controller="Administration" asp-action="EditCategorie" asp-route-id="@c.Id">Éditer</a>
+                    <form asp-controller="Administration"
+                          asp-action="DeleteCategorie"
+                          asp-route-id="@c.Id"
+                          method="post"
+                          style="display:inline"
+                          onsubmit="return confirm('Confirmer la suppression de la catégorie ?');">
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn btn-sm btn-danger">Supprimer</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<section>
+    <h2>Frameworks</h2>
+    @if (Model.Frameworks?.Any() == true)
+    {
+        <div class="d-flex justify-content-between align-items-center mb-2">
+            <a class="btn btn-primary"
+               asp-controller="Administration" asp-action="CreateFramework">
+                + Créer un Framework
+            </a>
+        </div>
+
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>Description</th>
+                    <th>Contenu</th>
+                    <th style="width:220px;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var f in Model.Frameworks)
+                {
+                    <tr>
+                        <td>@f.Id</td>
+                        <td>@f.Nom</td>
+                        <td>@f.Description</td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(f.Contenu))
+                            {
+                                @Html.Raw(f.Contenu)
+                            }
+                        </td>
+                        <td>
+                            <a class="btn btn-sm btn-info" asp-controller="Administration" asp-action="DetailFramework" asp-route-id="@f.Id">
+                                Détails
+                            </a>
+                            <a class="btn btn-sm btn-warning" asp-controller="Administration" asp-action="EditFramework" asp-route-id="@f.Id">
+                                Éditer
+                            </a>
+
+                            <form asp-controller="Administration"
+                                  asp-action="DeleteFramework"
+                                  asp-route-id="@f.Id"
+                                  method="post"
+                                  style="display:inline"
+                                  onsubmit="return confirm('Confirmer la suppression du framework ?');">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-sm btn-danger">Supprimer</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    else
+    {
+        <p>Aucun framework disponible.</p>
+    }
+
+</section>
+
+<section>
+    <h2>Sous‑catégories</h2>
+    @if (Model.SubCategories?.Any() == true)
+    {
+        <div class="d-flex justify-content-between align-items-center mb-2">
+            <a class="btn btn-primary"
+               asp-controller="Administration" asp-action="CreateSubCategorie">
+                + Créer une Sous Catégorie
+            </a>
+        </div>
+
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>Description</th>
+                    <th style="width:220px;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var s in Model.SubCategories)
+                {
+                    <tr>
+                        <td>@s.Id</td>
+                        <td>@s.Nom</td>
+                        <td>@s.Description</td>
+                        <td>
+                            <a class="btn btn-sm btn-info" asp-controller="Administration" asp-action="DetailSubCategorie" asp-route-id="@s.Id">
+                                Détails
+                            </a>
+                            <a class="btn btn-sm btn-warning" asp-controller="Administration" asp-action="EditSubCategorie" asp-route-id="@s.Id">
+                                Éditer
+                            </a>
+                            <form asp-controller="Administration"
+                                  asp-action="DeleteSubCategorie"
+                                  asp-route-id="@s.Id"
+                                  method="post"
+                                  style="display:inline"
+                                  onsubmit="return confirm('Confirmer la suppression de la catégorie ?');">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-sm btn-danger">Supprimer</button>
+                            </form>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    else
+    {
+        <p>Aucune sous‑catégorie disponible.</p>
+    }
+</section>

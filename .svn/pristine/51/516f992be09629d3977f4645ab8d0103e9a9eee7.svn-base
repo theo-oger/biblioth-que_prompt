@@ -1,0 +1,21 @@
+﻿using PromptLibrary_Modele;
+using PromptLibrary_Modele.TableRef;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PromptLibrary_Interfaces
+{
+    public interface ISubCategorieService
+    {
+        Task<List<SubCategorie>> GetAllSubCategorieAsync();
+        Task<bool> UpdateSubCategorieAsync(SubCategorie subcategorie);
+        bool IsSubCategorie(int id);
+        Task<SubCategorie> GetById(int id);
+        ValueTask<SubCategorie?> GetSubCategorieAsync(int id);
+        Task<bool> DeleteSubCategorieAsync(SubCategorie subcategorie);
+        Task<bool> CreateSubCategorieAsync(SubCategorie subcategorie);
+    }
+}

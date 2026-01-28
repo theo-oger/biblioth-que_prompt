@@ -1,0 +1,116 @@
+﻿using Microsoft.EntityFrameworkCore;
+using PromptLibrary_DAL;
+using PromptLibrary_Interfaces;
+using PromptLibrary_Modele;
+using PromptLibrary_Modele.TableRef;
+
+namespace PromptLibrary_Services
+{
+    public class PromptServices(PromptLibraryContext context) : IPromptServices
+    {
+        private readonly PromptLibraryContext ctx = context;
+
+        public async Task<List<Prompt>> GetAllAsync()
+        {
+            return await ctx.Prompts.Include(x => x.Categorie).Include(x => x.SubCategorie).Include(x => x.Framework).OrderBy(x => x.Titre).ToListAsync();
+        }
+        public async Task<List<Prompt>> GetAllActifAsync()
+        {
+            return await ctx.Prompts.Where(x => x.IsActive == true).OrderBy(x => x.Titre).ToListAsync();
+        }
+        public async Task<Prompt> GetById(int id)
+        {
+            return await ctx.Prompts.Include(x => x.Categorie).Include(x => x.SubCategorie).Include(x => x.Framework).SingleAsync(et => et.Id == id);
+        }
+
+
+        public async Task<bool> CreatePromptAsync(Prompt prompt)
+        {
+            context.Add(prompt);
+            return await context.SaveChangesAsync() > 0;
+        }
+
+        public async Task<bool> DeletePromptAsync(Prompt prompt)
+        {
+            Prompt? trackedPrompt = await context.Prompts.FindAsync(prompt.Id);
+            if (null == trackedPrompt)
+            {
+                throw new DbUpdateConcurrencyException();
+            }
+            context.Remove(trackedPrompt!);
+            return await context.SaveChangesAsync() > 0;
+        }
+
+        public async Task<bool> UpdatePromptAsync(Prompt prompt, int FrameworkId, int categorieId, int subCategorieId)
+        {
+            Prompt? trackedPrompt = await context.Prompts.FindAsync(prompt.Id);
+            if (trackedPrompt is null)
+                throw new DbUpdateConcurrencyException();
+
+            context.Entry(trackedPrompt).CurrentValues.SetValues(prompt);
+
+            trackedPrompt.FrameworkId = FrameworkId!;
+            trackedPrompt.CategorieId = categorieId;
+            trackedPrompt.SubCategorieId = subCategorieId;
+
+
+            return await context.SaveChangesAsync() > 0;
+
+        }
+
+        public async Task<bool> UpdateLikeAsync(int promptId, int compteur)
+        {
+            var trackedPrompt = await ctx.Prompts
+                .FirstOrDefaultAsync(p => p.Id == promptId);
+
+            if (trackedPrompt is null)
+                throw new DbUpdateConcurrencyException("Prompt introuvable.");
+
+            trackedPrompt.NombreDeLike += compteur;
+
+            return await ctx.SaveChangesAsync() > 0;
+        }
+
+        public bool IsPrompt(int id)
+        {
+            return context.Prompts.Any(e => e.Id == id);
+        }
+
+        public async Task<Prompt?> GetByIdAsync(int id)
+        {
+            return await context.Prompts.FindAsync(id);
+        }
+
+        public async Task<List<Prompt>> GetPromptsWithFrameworkAsync(Framework framework)
+        {
+            return await context.Prompts
+                .Where(p => p.FrameworkId == framework.Id)
+                .ToListAsync();
+        }
+
+        public async Task<List<Prompt>> GetPromptsWithCategorieAsync(Categorie categorie)
+        {
+            return await context.Prompts
+                .Where(p => p.CategorieId == categorie.Id)
+                .ToListAsync();
+        }
+
+        public async Task<List<Prompt>> GetPromptsWithSubCategorieAsync(SubCategorie subcategorie)
+        {
+            return await context.Prompts
+                .Where(p => p.SubCategorieId == subcategorie.Id)
+                .ToListAsync();
+        }
+
+        public async ValueTask<Prompt?> GetPromptAsync(int id)
+        {
+            return await context.Prompts.FindAsync(id);
+        }
+
+        public async Task<List<Prompt>> GetAllPromptAsync()
+        {
+            return await ctx.Prompts.ToListAsync();
+        }
+
+    }
+}

@@ -1,0 +1,602 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ZE00026\\Documents\\AI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|c:\\users\\ze00026\\documents\\ai\\promptlibrary_web\\views\\administration\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|solutionrelative:promptlibrary_web\\views\\administration\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|c:\\users\\ze00026\\documents\\ai\\promptlibrary_web\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|solutionrelative:promptlibrary_web\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|c:\\users\\ze00026\\documents\\ai\\promptlibrary_web\\wwwroot\\css\\main.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|solutionrelative:promptlibrary_web\\wwwroot\\css\\main.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|c:\\users\\ze00026\\documents\\ai\\promptlibrary_web\\wwwroot\\css\\dark.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|solutionrelative:promptlibrary_web\\wwwroot\\css\\dark.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|c:\\users\\ze00026\\documents\\ai\\promptlibrary_web\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|solutionrelative:promptlibrary_web\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|c:\\users\\ze00026\\documents\\ai\\promptlibrary_web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|solutionrelative:promptlibrary_web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|c:\\users\\ze00026\\documents\\ai\\promptlibrary_web\\views\\administration\\createsubcategorie.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|solutionrelative:promptlibrary_web\\views\\administration\\createsubcategorie.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|c:\\users\\ze00026\\documents\\ai\\promptlibrary_web\\views\\administration\\detailsubcategorie.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|solutionrelative:promptlibrary_web\\views\\administration\\detailsubcategorie.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|c:\\users\\ze00026\\documents\\ai\\promptlibrary_web\\views\\administration\\editsubcategorie.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|solutionrelative:promptlibrary_web\\views\\administration\\editsubcategorie.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|c:\\users\\ze00026\\documents\\ai\\promptlibrary_web\\views\\catalogue\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|solutionrelative:promptlibrary_web\\views\\catalogue\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|c:\\users\\ze00026\\documents\\ai\\promptlibrary_web\\views\\catalogue\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|solutionrelative:promptlibrary_web\\views\\catalogue\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|c:\\users\\ze00026\\documents\\ai\\promptlibrary_web\\controllers\\cataloguecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|solutionrelative:promptlibrary_web\\controllers\\cataloguecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|c:\\users\\ze00026\\documents\\ai\\promptlibrary_web\\views\\catalogue\\help.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|solutionrelative:promptlibrary_web\\views\\catalogue\\help.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|c:\\users\\ze00026\\documents\\ai\\promptlibrary_web\\views\\administration\\detailcategorie.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|solutionrelative:promptlibrary_web\\views\\administration\\detailcategorie.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE5BDECC-03EC-4292-B66A-DA15C0EAA1CB}|PromptLibrary_DAL\\PromptLibrary_DAL.csproj|c:\\users\\ze00026\\documents\\ai\\promptlibrary_dal\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE5BDECC-03EC-4292-B66A-DA15C0EAA1CB}|PromptLibrary_DAL\\PromptLibrary_DAL.csproj|solutionrelative:promptlibrary_dal\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|c:\\users\\ze00026\\documents\\ai\\promptlibrary_web\\views\\catalogue\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|solutionrelative:promptlibrary_web\\views\\catalogue\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|c:\\users\\ze00026\\documents\\ai\\promptlibrary_web\\models\\createcardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|solutionrelative:promptlibrary_web\\models\\createcardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE8DC427-7CFB-4616-BB6E-A9D24530514D}|PromptLibrary_Services\\PromptLibrary_Services.csproj|c:\\users\\ze00026\\documents\\ai\\promptlibrary_services\\frameworkservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE8DC427-7CFB-4616-BB6E-A9D24530514D}|PromptLibrary_Services\\PromptLibrary_Services.csproj|solutionrelative:promptlibrary_services\\frameworkservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|c:\\users\\ze00026\\documents\\ai\\promptlibrary_web\\controllers\\administrationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|solutionrelative:promptlibrary_web\\controllers\\administrationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9733CA5A-83F3-4C0D-8067-34EED3D82B41}|PromptLibrary_Modele\\PromptLibrary_Modele.csproj|c:\\users\\ze00026\\documents\\ai\\promptlibrary_modele\\tableref\\categorie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9733CA5A-83F3-4C0D-8067-34EED3D82B41}|PromptLibrary_Modele\\PromptLibrary_Modele.csproj|solutionrelative:promptlibrary_modele\\tableref\\categorie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9733CA5A-83F3-4C0D-8067-34EED3D82B41}|PromptLibrary_Modele\\PromptLibrary_Modele.csproj|c:\\users\\ze00026\\documents\\ai\\promptlibrary_modele\\prompt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9733CA5A-83F3-4C0D-8067-34EED3D82B41}|PromptLibrary_Modele\\PromptLibrary_Modele.csproj|solutionrelative:promptlibrary_modele\\prompt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|c:\\users\\ze00026\\documents\\ai\\promptlibrary_web\\wwwroot\\img\\corbeille.png||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|solutionrelative:promptlibrary_web\\wwwroot\\img\\corbeille.png||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|c:\\users\\ze00026\\documents\\ai\\promptlibrary_web\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|solutionrelative:promptlibrary_web\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B549C9A-289D-47DE-89CB-AA9856115EA4}|PromptLibrary_Interfaces\\PromptLibrary_Interfaces.csproj|c:\\users\\ze00026\\documents\\ai\\promptlibrary_interfaces\\isubcategorieservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B549C9A-289D-47DE-89CB-AA9856115EA4}|PromptLibrary_Interfaces\\PromptLibrary_Interfaces.csproj|solutionrelative:promptlibrary_interfaces\\isubcategorieservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE8DC427-7CFB-4616-BB6E-A9D24530514D}|PromptLibrary_Services\\PromptLibrary_Services.csproj|c:\\users\\ze00026\\documents\\ai\\promptlibrary_services\\categoriesubservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE8DC427-7CFB-4616-BB6E-A9D24530514D}|PromptLibrary_Services\\PromptLibrary_Services.csproj|solutionrelative:promptlibrary_services\\categoriesubservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B549C9A-289D-47DE-89CB-AA9856115EA4}|PromptLibrary_Interfaces\\PromptLibrary_Interfaces.csproj|c:\\users\\ze00026\\documents\\ai\\promptlibrary_interfaces\\iframeworkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B549C9A-289D-47DE-89CB-AA9856115EA4}|PromptLibrary_Interfaces\\PromptLibrary_Interfaces.csproj|solutionrelative:promptlibrary_interfaces\\iframeworkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE8DC427-7CFB-4616-BB6E-A9D24530514D}|PromptLibrary_Services\\PromptLibrary_Services.csproj|c:\\users\\ze00026\\documents\\ai\\promptlibrary_services\\categorieservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE8DC427-7CFB-4616-BB6E-A9D24530514D}|PromptLibrary_Services\\PromptLibrary_Services.csproj|solutionrelative:promptlibrary_services\\categorieservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B549C9A-289D-47DE-89CB-AA9856115EA4}|PromptLibrary_Interfaces\\PromptLibrary_Interfaces.csproj|c:\\users\\ze00026\\documents\\ai\\promptlibrary_interfaces\\icategorieservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B549C9A-289D-47DE-89CB-AA9856115EA4}|PromptLibrary_Interfaces\\PromptLibrary_Interfaces.csproj|solutionrelative:promptlibrary_interfaces\\icategorieservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE8DC427-7CFB-4616-BB6E-A9D24530514D}|PromptLibrary_Services\\PromptLibrary_Services.csproj|c:\\users\\ze00026\\documents\\ai\\promptlibrary_services\\promptservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE8DC427-7CFB-4616-BB6E-A9D24530514D}|PromptLibrary_Services\\PromptLibrary_Services.csproj|solutionrelative:promptlibrary_services\\promptservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|c:\\users\\ze00026\\documents\\ai\\promptlibrary_web\\views\\administration\\editframework.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|solutionrelative:promptlibrary_web\\views\\administration\\editframework.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|c:\\users\\ze00026\\documents\\ai\\promptlibrary_web\\wwwroot\\js\\catalogue.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|solutionrelative:promptlibrary_web\\wwwroot\\js\\catalogue.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|c:\\users\\ze00026\\documents\\ai\\promptlibrary_web\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|solutionrelative:promptlibrary_web\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|c:\\users\\ze00026\\documents\\ai\\promptlibrary_web\\views\\administration\\createcategorie.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|solutionrelative:promptlibrary_web\\views\\administration\\createcategorie.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|c:\\users\\ze00026\\documents\\ai\\promptlibrary_web\\views\\administration\\editcategorie.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{117BB21A-AC1D-4312-AD05-B90BF383B01B}|PromptLibrary_Web\\PromptLibrary_Web.csproj|solutionrelative:promptlibrary_web\\views\\administration\\editcategorie.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9733CA5A-83F3-4C0D-8067-34EED3D82B41}|PromptLibrary_Modele\\PromptLibrary_Modele.csproj|c:\\users\\ze00026\\documents\\ai\\promptlibrary_modele\\tableref\\framework.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9733CA5A-83F3-4C0D-8067-34EED3D82B41}|PromptLibrary_Modele\\PromptLibrary_Modele.csproj|solutionrelative:promptlibrary_modele\\tableref\\framework.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9733CA5A-83F3-4C0D-8067-34EED3D82B41}|PromptLibrary_Modele\\PromptLibrary_Modele.csproj|c:\\users\\ze00026\\documents\\ai\\promptlibrary_modele\\tableref\\subcategorie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9733CA5A-83F3-4C0D-8067-34EED3D82B41}|PromptLibrary_Modele\\PromptLibrary_Modele.csproj|solutionrelative:promptlibrary_modele\\tableref\\subcategorie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "PromptLibrary_Web\\Models\\ErrorViewModel.cs",
+              "ToolTip": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "PromptLibrary_Web\\Models\\ErrorViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-23T09:29:45.433Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Dark.css",
+              "DocumentMoniker": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\wwwroot\\css\\Dark.css",
+              "RelativeDocumentMoniker": "PromptLibrary_Web\\wwwroot\\css\\Dark.css",
+              "ToolTip": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\wwwroot\\css\\Dark.css",
+              "RelativeToolTip": "PromptLibrary_Web\\wwwroot\\css\\Dark.css",
+              "ViewState": "AgIAAKUBAAAAAAAAAAAQwL4BAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-01-22T12:16:58.008Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\Views\\Catalogue\\Index.cshtml",
+              "RelativeDocumentMoniker": "PromptLibrary_Web\\Views\\Catalogue\\Index.cshtml",
+              "ToolTip": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\Views\\Catalogue\\Index.cshtml",
+              "RelativeToolTip": "PromptLibrary_Web\\Views\\Catalogue\\Index.cshtml",
+              "ViewState": "AgIAADoAAAAAAAAAAAAowHEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-16T08:19:52.957Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\Views\\Administration\\Index.cshtml",
+              "RelativeDocumentMoniker": "PromptLibrary_Web\\Views\\Administration\\Index.cshtml",
+              "ToolTip": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\Views\\Administration\\Index.cshtml",
+              "RelativeToolTip": "PromptLibrary_Web\\Views\\Administration\\Index.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-16T08:05:35.74Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\Views\\Catalogue\\Create.cshtml",
+              "RelativeDocumentMoniker": "PromptLibrary_Web\\Views\\Catalogue\\Create.cshtml",
+              "ToolTip": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\Views\\Catalogue\\Create.cshtml",
+              "RelativeToolTip": "PromptLibrary_Web\\Views\\Catalogue\\Create.cshtml",
+              "ViewState": "AgIAADQAAAAAAAAAAAAwwEoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-19T14:26:01.413Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Main.css",
+              "DocumentMoniker": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\wwwroot\\css\\Main.css",
+              "RelativeDocumentMoniker": "PromptLibrary_Web\\wwwroot\\css\\Main.css",
+              "ToolTip": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\wwwroot\\css\\Main.css",
+              "RelativeToolTip": "PromptLibrary_Web\\wwwroot\\css\\Main.css",
+              "ViewState": "AgIAAK0AAAAAAAAAAAAUwNAAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-01-16T07:59:30.572Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DetailSubCategorie.cshtml",
+              "DocumentMoniker": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\Views\\Administration\\DetailSubCategorie.cshtml",
+              "RelativeDocumentMoniker": "PromptLibrary_Web\\Views\\Administration\\DetailSubCategorie.cshtml",
+              "ToolTip": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\Views\\Administration\\DetailSubCategorie.cshtml",
+              "RelativeToolTip": "PromptLibrary_Web\\Views\\Administration\\DetailSubCategorie.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-22T13:11:45.033Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "CreateCardViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\Models\\CreateCardViewModel.cs",
+              "RelativeDocumentMoniker": "PromptLibrary_Web\\Models\\CreateCardViewModel.cs",
+              "ToolTip": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\Models\\CreateCardViewModel.cs",
+              "RelativeToolTip": "PromptLibrary_Web\\Models\\CreateCardViewModel.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAACoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-16T13:16:24.56Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "SeedData.cs",
+              "DocumentMoniker": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_DAL\\SeedData.cs",
+              "RelativeDocumentMoniker": "PromptLibrary_DAL\\SeedData.cs",
+              "ToolTip": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_DAL\\SeedData.cs",
+              "RelativeToolTip": "PromptLibrary_DAL\\SeedData.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAqwG0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-20T08:17:40.645Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "PromptLibrary_Web\\wwwroot\\css\\site.css",
+              "ToolTip": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "PromptLibrary_Web\\wwwroot\\css\\site.css",
+              "ViewState": "AgIAAIEAAAAAAAAAAAAAAJYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-01-20T14:38:18.704Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "PromptLibrary_Web\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "PromptLibrary_Web\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEIAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-22T12:17:32.846Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CreateSubCategorie.cshtml",
+              "DocumentMoniker": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\Views\\Administration\\CreateSubCategorie.cshtml",
+              "RelativeDocumentMoniker": "PromptLibrary_Web\\Views\\Administration\\CreateSubCategorie.cshtml",
+              "ToolTip": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\Views\\Administration\\CreateSubCategorie.cshtml",
+              "RelativeToolTip": "PromptLibrary_Web\\Views\\Administration\\CreateSubCategorie.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-22T13:11:53.865Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\Views\\Catalogue\\Edit.cshtml",
+              "RelativeDocumentMoniker": "PromptLibrary_Web\\Views\\Catalogue\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\Views\\Catalogue\\Edit.cshtml",
+              "RelativeToolTip": "PromptLibrary_Web\\Views\\Catalogue\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-19T15:21:38.456Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "EditSubCategorie.cshtml",
+              "DocumentMoniker": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\Views\\Administration\\EditSubCategorie.cshtml",
+              "RelativeDocumentMoniker": "PromptLibrary_Web\\Views\\Administration\\EditSubCategorie.cshtml",
+              "ToolTip": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\Views\\Administration\\EditSubCategorie.cshtml",
+              "RelativeToolTip": "PromptLibrary_Web\\Views\\Administration\\EditSubCategorie.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-19T10:38:33.95Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Help.cshtml",
+              "DocumentMoniker": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\Views\\Catalogue\\Help.cshtml",
+              "RelativeDocumentMoniker": "PromptLibrary_Web\\Views\\Catalogue\\Help.cshtml",
+              "ToolTip": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\Views\\Catalogue\\Help.cshtml",
+              "RelativeToolTip": "PromptLibrary_Web\\Views\\Catalogue\\Help.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-19T15:06:51.811Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "CatalogueController.cs",
+              "DocumentMoniker": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\Controllers\\CatalogueController.cs",
+              "RelativeDocumentMoniker": "PromptLibrary_Web\\Controllers\\CatalogueController.cs",
+              "ToolTip": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\Controllers\\CatalogueController.cs",
+              "RelativeToolTip": "PromptLibrary_Web\\Controllers\\CatalogueController.cs",
+              "ViewState": "AgIAAG0AAAAAAAAAAAAkwOYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-16T13:15:52.51Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "DetailCategorie.cshtml",
+              "DocumentMoniker": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\Views\\Administration\\DetailCategorie.cshtml",
+              "RelativeDocumentMoniker": "PromptLibrary_Web\\Views\\Administration\\DetailCategorie.cshtml",
+              "ToolTip": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\Views\\Administration\\DetailCategorie.cshtml",
+              "RelativeToolTip": "PromptLibrary_Web\\Views\\Administration\\DetailCategorie.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-20T14:53:09.287Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "AdministrationController.cs",
+              "DocumentMoniker": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\Controllers\\AdministrationController.cs",
+              "RelativeDocumentMoniker": "PromptLibrary_Web\\Controllers\\AdministrationController.cs",
+              "ToolTip": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\Controllers\\AdministrationController.cs",
+              "RelativeToolTip": "PromptLibrary_Web\\Controllers\\AdministrationController.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAADwvzoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-16T13:15:51.977Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "catalogue.js",
+              "DocumentMoniker": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\wwwroot\\js\\catalogue.js",
+              "RelativeDocumentMoniker": "PromptLibrary_Web\\wwwroot\\js\\catalogue.js",
+              "ToolTip": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\wwwroot\\js\\catalogue.js",
+              "RelativeToolTip": "PromptLibrary_Web\\wwwroot\\js\\catalogue.js",
+              "ViewState": "AgIAADIAAAAAAAAAAAAAwE0AAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-01-16T08:29:16.668Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Prompt.cs",
+              "DocumentMoniker": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Modele\\Prompt.cs",
+              "RelativeDocumentMoniker": "PromptLibrary_Modele\\Prompt.cs",
+              "ToolTip": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Modele\\Prompt.cs",
+              "RelativeToolTip": "PromptLibrary_Modele\\Prompt.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-16T13:10:21.374Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "SubCategorie.cs",
+              "DocumentMoniker": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Modele\\TableRef\\SubCategorie.cs",
+              "RelativeDocumentMoniker": "PromptLibrary_Modele\\TableRef\\SubCategorie.cs",
+              "ToolTip": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Modele\\TableRef\\SubCategorie.cs",
+              "RelativeToolTip": "PromptLibrary_Modele\\TableRef\\SubCategorie.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-16T13:10:54.058Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "FrameworkServices.cs",
+              "DocumentMoniker": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Services\\FrameworkServices.cs",
+              "RelativeDocumentMoniker": "PromptLibrary_Services\\FrameworkServices.cs",
+              "ToolTip": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Services\\FrameworkServices.cs",
+              "RelativeToolTip": "PromptLibrary_Services\\FrameworkServices.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBgAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T12:59:31.222Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Error.cshtml",
+              "DocumentMoniker": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\Views\\Shared\\Error.cshtml",
+              "RelativeDocumentMoniker": "PromptLibrary_Web\\Views\\Shared\\Error.cshtml",
+              "ToolTip": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\Views\\Shared\\Error.cshtml",
+              "RelativeToolTip": "PromptLibrary_Web\\Views\\Shared\\Error.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-19T13:29:07.265Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "corbeille.png",
+              "DocumentMoniker": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\wwwroot\\img\\corbeille.png",
+              "RelativeDocumentMoniker": "PromptLibrary_Web\\wwwroot\\img\\corbeille.png",
+              "ToolTip": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\wwwroot\\img\\corbeille.png",
+              "RelativeToolTip": "PromptLibrary_Web\\wwwroot\\img\\corbeille.png",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2026-01-19T14:08:16.606Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Categorie.cs",
+              "DocumentMoniker": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Modele\\TableRef\\Categorie.cs",
+              "RelativeDocumentMoniker": "PromptLibrary_Modele\\TableRef\\Categorie.cs",
+              "ToolTip": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Modele\\TableRef\\Categorie.cs",
+              "RelativeToolTip": "PromptLibrary_Modele\\TableRef\\Categorie.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T14:08:36.457Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "ICategorieService.cs",
+              "DocumentMoniker": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Interfaces\\ICategorieService.cs",
+              "RelativeDocumentMoniker": "PromptLibrary_Interfaces\\ICategorieService.cs",
+              "ToolTip": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Interfaces\\ICategorieService.cs",
+              "RelativeToolTip": "PromptLibrary_Interfaces\\ICategorieService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T13:17:13.097Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "IFrameworkService.cs",
+              "DocumentMoniker": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Interfaces\\IFrameworkService.cs",
+              "RelativeDocumentMoniker": "PromptLibrary_Interfaces\\IFrameworkService.cs",
+              "ToolTip": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Interfaces\\IFrameworkService.cs",
+              "RelativeToolTip": "PromptLibrary_Interfaces\\IFrameworkService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T13:17:37.957Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "ISubCategorieService.cs",
+              "DocumentMoniker": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Interfaces\\ISubCategorieService.cs",
+              "RelativeDocumentMoniker": "PromptLibrary_Interfaces\\ISubCategorieService.cs",
+              "ToolTip": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Interfaces\\ISubCategorieService.cs",
+              "RelativeToolTip": "PromptLibrary_Interfaces\\ISubCategorieService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T13:19:46.819Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "CategorieSubServices.cs",
+              "DocumentMoniker": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Services\\CategorieSubServices.cs",
+              "RelativeDocumentMoniker": "PromptLibrary_Services\\CategorieSubServices.cs",
+              "ToolTip": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Services\\CategorieSubServices.cs",
+              "RelativeToolTip": "PromptLibrary_Services\\CategorieSubServices.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAA1wCcAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T13:19:50.224Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "CategorieServices.cs",
+              "DocumentMoniker": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Services\\CategorieServices.cs",
+              "RelativeDocumentMoniker": "PromptLibrary_Services\\CategorieServices.cs",
+              "ToolTip": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Services\\CategorieServices.cs",
+              "RelativeToolTip": "PromptLibrary_Services\\CategorieServices.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAYwCcAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-16T13:20:41.203Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "PromptServices.cs",
+              "DocumentMoniker": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Services\\PromptServices.cs",
+              "RelativeDocumentMoniker": "PromptLibrary_Services\\PromptServices.cs",
+              "ToolTip": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Services\\PromptServices.cs",
+              "RelativeToolTip": "PromptLibrary_Services\\PromptServices.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAswFAAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T13:12:11.615Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "EditFramework.cshtml",
+              "DocumentMoniker": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\Views\\Administration\\EditFramework.cshtml",
+              "RelativeDocumentMoniker": "PromptLibrary_Web\\Views\\Administration\\EditFramework.cshtml",
+              "ToolTip": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\Views\\Administration\\EditFramework.cshtml",
+              "RelativeToolTip": "PromptLibrary_Web\\Views\\Administration\\EditFramework.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAC8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-19T10:38:37.574Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "site.js",
+              "DocumentMoniker": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\wwwroot\\js\\site.js",
+              "RelativeDocumentMoniker": "PromptLibrary_Web\\wwwroot\\js\\site.js",
+              "ToolTip": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\wwwroot\\js\\site.js",
+              "RelativeToolTip": "PromptLibrary_Web\\wwwroot\\js\\site.js",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAYwB8AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-01-19T08:26:57.428Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "EditCategorie.cshtml",
+              "DocumentMoniker": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\Views\\Administration\\EditCategorie.cshtml",
+              "RelativeDocumentMoniker": "PromptLibrary_Web\\Views\\Administration\\EditCategorie.cshtml",
+              "ToolTip": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\Views\\Administration\\EditCategorie.cshtml",
+              "RelativeToolTip": "PromptLibrary_Web\\Views\\Administration\\EditCategorie.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-16T13:18:07.462Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "CreateCategorie.cshtml",
+              "DocumentMoniker": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\Views\\Administration\\CreateCategorie.cshtml",
+              "RelativeDocumentMoniker": "PromptLibrary_Web\\Views\\Administration\\CreateCategorie.cshtml",
+              "ToolTip": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Web\\Views\\Administration\\CreateCategorie.cshtml",
+              "RelativeToolTip": "PromptLibrary_Web\\Views\\Administration\\CreateCategorie.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-15T15:50:38.99Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "Framework.cs",
+              "DocumentMoniker": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Modele\\TableRef\\Framework.cs",
+              "RelativeDocumentMoniker": "PromptLibrary_Modele\\TableRef\\Framework.cs",
+              "ToolTip": "C:\\Users\\ZE00026\\Documents\\AI\\PromptLibrary_Modele\\TableRef\\Framework.cs",
+              "RelativeToolTip": "PromptLibrary_Modele\\TableRef\\Framework.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-16T13:12:48.222Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

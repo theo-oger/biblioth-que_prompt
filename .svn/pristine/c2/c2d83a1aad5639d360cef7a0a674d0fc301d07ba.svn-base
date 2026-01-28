@@ -1,0 +1,36 @@
+﻿using PromptLibrary_Modele.TableRef;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace PromptLibrary_Modele
+{
+    [Table("Prompt")]
+    public class Prompt
+    {
+        public int Id { get; set; }
+
+        [Display(Name = "Titre")]
+        [StringLength(100)]
+        [Required]
+        public string Titre { get; set; } = null!;
+
+        public int? CategorieId { get; set; }
+        [Display(Name = "Categorie")]
+        public virtual Categorie? Categorie { get; set; }
+
+        public int? SubCategorieId { get; set; }
+        [Display(Name = "Sous Categorie")]
+        public virtual SubCategorie? SubCategorie { get; set; }
+
+        public int? FrameworkId { get; set; }
+        [Display(Name = "Framework")]
+        public virtual Framework? Framework { get; set; }
+
+        [Display(Name = "Contenu")]
+        public string Content { get; set; } = null!;
+
+        [Display(Name = "Est actif ?")]
+        public bool? IsActive { get; set; }
+      
+    }
+}

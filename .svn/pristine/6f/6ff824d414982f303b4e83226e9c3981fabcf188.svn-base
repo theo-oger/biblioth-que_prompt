@@ -1,0 +1,6 @@
+﻿@model CardsViewModel
+
+@{
+    ViewData["Title"] = "index";
+}
+

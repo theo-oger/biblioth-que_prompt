@@ -1,0 +1,18 @@
+﻿using PromptLibrary_Modele;
+
+namespace PromptLibrary_Interfaces
+{
+    public interface IPromptServices
+    {
+        Task<List<Prompt>> GetAllAsync();
+        Task<List<Prompt>> GetAllActifAsync();
+        Task<Prompt> GetById(int id);
+        Task<bool> CreateOrUptdate(int id, string titre, bool isActive);
+        Task<bool> CreatePromptAsync(Prompt prompt);
+
+        Task<bool> UpdatePromptAsync(Prompt prompt, int FrameworkId, int categorieId, int subCategorieId);
+        bool IsPrompt(int id);
+        Task<Prompt?> GetByIdAsync(int id);
+
+    }
+}

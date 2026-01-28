@@ -1,0 +1,17 @@
+﻿using PromptLibrary_Modele;
+using PromptLibrary_Modele.TableRef;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PromptLibrary_Interfaces
+{
+    public interface ICategorieService
+    {
+        Task<List<Categorie>> GetAllCategorieAsync();
+
+
+    }
+}

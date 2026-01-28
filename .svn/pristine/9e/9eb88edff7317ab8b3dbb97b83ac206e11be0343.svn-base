@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - PromptLibrary_Web</title>
+
+    <link id="themeStylesheet" rel="stylesheet" href="~/css/Main.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+
+    @await RenderSectionAsync("additionnalhead", required: false)
+</head>
+<body>
+    <header>
+        <div class="logo">🌐 PromptLibrary - POC</div>
+        <div class="user-info">Connecté : User Name - Ville</div>
+
+
+        <nav class="nav-actions">
+            <a class="admin-btn" asp-controller="Administration" asp-action="Index">
+                Administration
+            </a>
+
+            <a class="prompt-btn" asp-controller="Catalogue" asp-action="Index">
+                Prompts
+            </a>
+
+            <button id="themeToggle" class="btn btn-outline-secondary"
+                    style="border-radius: 25px; padding: 6px 15px;">
+                🌙 Mode sombre
+            </button>
+
+        </nav>
+
+
+    </header>
+    @RenderBody()
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const themeLink = document.getElementById("themeStylesheet");
+        const toggleBtn = document.getElementById("themeToggle");
+
+        let savedTheme = localStorage.getItem("theme") || "light";
+        applyTheme(savedTheme);
+
+        toggleBtn.addEventListener("click", () => {
+            let newTheme = (themeLink.href.includes("Dark.css")) ? "light" : "dark";
+            applyTheme(newTheme);
+            localStorage.setItem("theme", newTheme);
+        });
+
+        function applyTheme(theme) {
+            if (theme === "dark") {
+                themeLink.href = "/css/Dark.css";
+                toggleBtn.textContent = "Mode clair";
+            } else {
+                themeLink.href = "/css/Main.css";
+                toggleBtn.textContent = "Mode sombre";
+            }
+        }
+    });
+</script>
+

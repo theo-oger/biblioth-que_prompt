@@ -1,0 +1,44 @@
+﻿@using PromptLibrary_Modele.TableRef
+@model SubCategorie
+
+@{
+    ViewData["Title"] = "Modifier la sous catégorie";
+}
+
+<section class="page-head">
+    <h1 class="page-title">@ViewData["Title"]</h1>
+    <p class="page-subtitle">Mets à jour le nom et la description de ta sous‑catégorie</p>
+</section>
+
+<form asp-controller="Administration" asp-action="EditSubCategorie" method="post" class="form-card">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="Id" />
+
+    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+    <div class="mb-3">
+        <label asp-for="Nom" class="form-label"></label>
+        <input asp-for="Nom" class="form-control" />
+        <span asp-validation-for="Nom" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Description" class="form-label"></label>
+        <textarea asp-for="Description" class="form-control" rows="6"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-actions">
+        <a asp-controller="Administration" asp-action="Index" class="btn-secondary-link">Annuler</a>
+        <button type="submit" class="create-btn">Enregistrer</button>
+    </div>
+
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+@section additionnalhead {
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" asp-append-version="true" />
+}
+

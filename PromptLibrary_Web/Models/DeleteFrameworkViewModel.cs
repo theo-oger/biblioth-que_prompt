@@ -1,0 +1,11 @@
+﻿using PromptLibrary_Modele;
+using PromptLibrary_Modele.TableRef;
+
+namespace PromptLibrary_Web.Models
+{
+    public class DeleteFrameworkViewModel
+    {
+        public Framework Framework { get; set; } = null!;
+        public List<Prompt> Prompts { get; set; } = new List<Prompt>();
+    }
+}

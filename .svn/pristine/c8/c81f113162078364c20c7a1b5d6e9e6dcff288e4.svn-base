@@ -1,0 +1,233 @@
+﻿@{
+    ViewData["Title"] = "Guide des prompts Copilot – Bonnes pratiques et modèles";
+}
+
+<h1>Guide complet pour rédiger d’excellents prompts Copilot</h1>
+
+<p>
+    Cette page explique comment formuler des prompts efficaces pour Microsoft 365 Copilot
+    (Word, Excel, PowerPoint, Outlook, Teams) et GitHub Copilot (développeurs).
+</p>
+
+<hr />
+
+<h2>1. Comprendre Copilot</h2>
+
+<h3>Microsoft 365 Copilot</h3>
+<p>
+    Copilot dans Word, Excel, PowerPoint, Outlook ou Teams utilise vos documents, vos e‑mails,
+    vos fichiers et les informations auxquelles vous avez déjà accès pour générer, résumer,
+    analyser ou transformer du contenu. Il ne peut accéder qu’aux données auxquelles vous avez,
+    vous-même, l’autorisation d’accéder.
+</p>
+
+<h3>GitHub Copilot</h3>
+<p>
+    GitHub Copilot assiste les développeurs dans l’écriture, la révision, la compréhension et
+    la correction du code (C#, JS, Python, etc.). Il peut proposer des fonctions complètes,
+    expliquer des blocs de code, générer des tests, etc.
+</p>
+
+<hr />
+
+<h2>2. Structure d’un bon prompt</h2>
+
+<p>Un excellent prompt suit généralement ce modèle :</p>
+
+<ul>
+    <li><strong>Rôle :</strong> qui doit être Copilot (expert, conseiller, analyste, architecte…)</li>
+    <li><strong>Tâche :</strong> ce que tu veux précisément obtenir</li>
+    <li><strong>Contexte :</strong> données, contraintes, objectif métier</li>
+    <li><strong>Contraintes :</strong> ton, longueur, style, normes, restrictions</li>
+    <li><strong>Format attendu :</strong> tableau, liste, JSON, plan, étapes numérotées…</li>
+    <li><strong>Exemples :</strong> modèles à imiter quand c’est utile</li>
+    <li><strong>Garde-fous :</strong> “ne rien inventer”, “indiquer incertitudes”, “poser questions”</li>
+</ul>
+
+<h3>Template générique</h3>
+
+<pre>
+Tu es [rôle].
+Tâche : [objectif clair].
+
+Contexte :
+
+Contraintes : [ton, longueur, style, normes].
+Format attendu : [liste, tableau, JSON, plan].
+Garde-fous :
+- Si information manquante → pose des questions.
+- Si incertain → indique ton niveau d'incertitude.
+- Propose 2 variantes si nécessaire.
+</pre>
+
+<hr />
+
+<h2>3. Techniques avancées</h2>
+
+<ul>
+    <li><strong>Chaînage logique :</strong> demander “raisonne étape par étape”.</li>
+    <li><strong>Auto‑critique :</strong> “liste hypothèses et risques avant la réponse finale”.</li>
+    <li><strong>Contrat de sortie :</strong> obliger Copilot à générer un format strict (JSON…).</li>
+    <li><strong>Comparaison :</strong> demander plusieurs options + recommandation argumentée.</li>
+    <li><strong>Itération :</strong> améliorer la réponse avec des demandes ciblées.</li>
+</ul>
+
+<pre>
+Objectif : [résultat].
+
+Procède en 3 phases :
+1) Propose un plan en sections numérotées.
+2) Développe chaque section en 3–5 points actionnables.
+3) Auto-critique : liste hypothèses, risques, zones d'incertitude.
+
+Sortie : tableau [Section | Points clés | Hypothèses | Risques].
+</pre>
+
+<hr />
+
+<h2>4. Anti‑patterns (mauvaises pratiques) + Corrections</h2>
+
+<h3>Mauvais exemple</h3>
+<pre>“Fais-moi un résumé.”</pre>
+
+<h3>Meilleur exemple</h3>
+<pre>
+Résume en 6 points destinés à un public de direction.
+Inclue : décisions, risques, tendances et actions recommandées.
+Si information manquante, pose 3 questions précises.
+</pre>
+
+<h3>Mauvais exemple</h3>
+<pre>“Explique ce tableau.”</pre>
+
+<h3>Meilleur exemple</h3>
+<pre>
+Analyse les données suivantes et détecte 3 anomalies significatives.
+Pour chaque anomalie, propose 1 hypothèse métier et 2 actions.
+Format : tableau [Anomalie | Hypothèse | Actions].
+Données :
+
+[colle tableau ici]
+</pre>
+
+<hr />
+
+<h2>5. Exemples prêts à l’emploi pour Microsoft 365</h2>
+
+<h3>Word – Rédaction structurée</h3>
+
+<pre>
+Tu es rédacteur technique senior.
+Rédige une note de cadrage (1 page) pour la direction.
+
+Contexte :
+
+Projet : refonte onboarding mobile.
+Budget : <150k€ Objectif KPI : activation utilisateur +15%.
+                Contraintes : clair, concis, orienté décisions.
+                Format : Contexte, Objectifs, Portée, Hors portée, Risques, Actions.
+</pre>
+
+<h3>Excel – Analyse & visualisation</h3>
+
+<pre>
+Objectif : Analyse de données et recommandations.
+
+Contexte :
+
+[colle tableau Excel exporté]
+
+Tâche :
+1) Détecte 3 insights importants.
+2) Propose le bon graphique pour chaque insight.
+3) Donne les formules Excel utiles.
+
+Format : tableau [Insight | Graphique | Formule | Hypothèse].
+</pre>
+
+<h3>PowerPoint – Structure de présentation</h3>
+
+<pre>
+Tu es consultant en stratégie.
+Génère un plan de présentation en 8 slides max.
+
+Contexte :
+
+[colle notes, chiffres, problèmes client]
+
+Format : [Slide n° | Titre | Message clé | Preuve | Visuel recommandé].
+</pre>
+
+<h3>Outlook – Synthèse d’e-mails</h3>
+
+<pre>
+Résume ce thread en 5–7 actions claires.
+Inclure : propriétaire, échéance, dépendances.
+Format : tableau [Action | Owner | Deadline | Commentaire].
+</pre>
+
+<h3>Teams – Compte-rendu de réunion</h3>
+
+<pre>
+Génère un compte-rendu concis basé sur le transcript.
+Inclure : décisions, actions, owners, deadlines, risques.
+Format structuré en 4 blocs :
+1) Décisions
+2) Actions (tableau)
+3) Risques
+4) Questions ouvertes
+</pre>
+
+<hr />
+
+<h2>6. Prompts C# pour développeurs (GitHub Copilot)</h2>
+
+<h3>Création de fonction + tests unitaires</h3>
+
+<pre>
+Rôle : Ingénieur C# senior.
+
+Tâche : Écrire une méthode qui normalise un email (trim, lowercase, validation regex).
+Inclure : exceptions custom, commentaires XML, tests xUnit.
+
+Contraintes :
+- .NET 8
+- Aucun package externe
+- Générer tests de cas limites : null, vide, accents, espaces.
+
+Sortie attendue :
+1) Code de la méthode
+2) Tests unitaires
+3) Brève explication des choix
+</pre>
+
+<h3>Refactoring orienté SOLID</h3>
+
+<pre>
+Analyse ce code :
+
+[colle le code C# ici]
+
+Propose un refactoring conforme SOLID.
+Inclure :
+- Explication des faiblesses actuelles
+- Version améliorée (C# .NET 8)
+- Découpage en classes / interfaces
+- Ajout de logs structurés
+- Ajout de tests unitaires
+</pre>
+
+<hr />
+
+<h2>7. Checklist “Avant d’envoyer ton prompt”</h2>
+
+<ul>
+    <li>Mon objectif est-il clair et mesurable ?</li>
+    <li>Ai-je fourni tout le contexte nécessaire ?</li>
+    <li>Ai-je indiqué le format souhaité ?</li>
+    <li>Ai-je donné des contraintes (ton, longueur, style) ?</li>
+    <li>Ai-je demandé à Copilot de poser des questions en cas d’ambiguïté ?</li>
+    <li>Ai-je imposé des garde‑fous contre l’invention ?</li>
+</ul>
+
+<p><strong>Prêt à l’emploi — tu peux copier/coller ces modèles directement dans Copilot.</strong></p>

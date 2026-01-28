@@ -1,0 +1,3 @@
+﻿@using PromptLibrary_DAL
+@using PromptLibrary_DAL.Models
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers

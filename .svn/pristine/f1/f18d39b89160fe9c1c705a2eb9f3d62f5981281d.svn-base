@@ -1,0 +1,74 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using PromptLibrary_DAL;
+using PromptLibrary_Interfaces;
+using PromptLibrary_Modele;
+
+namespace PromptLibrary_Services
+{
+    public class PromptServices(PromptLibraryContext context) : IPromptServices
+    {
+        private readonly PromptLibraryContext ctx = context;
+
+        public async Task<List<Prompt>> GetAllAsync()
+        {
+            return await ctx.Prompts.Include(x => x.Categorie).Include(x => x.SubCategorie).Include(x => x.Framework).OrderBy(x => x.Titre).ToListAsync();
+        }
+        public async Task<List<Prompt>> GetAllActifAsync()
+        {
+            return await ctx.Prompts.Where(x => x.IsActive == true).OrderBy(x => x.Titre).ToListAsync();
+        }
+        public async Task<Prompt> GetById(int id)
+        {
+            return await ctx.Prompts.Include(x => x.Categorie).Include(x => x.SubCategorie).Include(x => x.Framework).SingleAsync(et => et.Id == id);
+        }
+        public async Task<bool> CreateOrUptdate(int id, string titre, bool isActive)
+        {
+            if (ctx.Prompts.Any(x => x.Id != id && x.Titre == titre))
+            {
+                return false;
+            }
+            Prompt prompt = id == 0 ? new Prompt() : await GetById(id);
+            prompt.Titre = titre;
+            prompt.IsActive = id == 0 || isActive;
+
+            ctx.Update(prompt);
+            bool retour = await ctx.SaveChangesAsync() > 0;
+            return retour;
+        }
+
+        public async Task<bool> CreatePromptAsync(Prompt prompt)
+        {
+            context.Add(prompt);
+            return await context.SaveChangesAsync() > 0;
+        }
+
+
+        public async Task<bool> UpdatePromptAsync(Prompt prompt, int FrameworkId, int categorieId, int subCategorieId )
+        {
+            Prompt? trackedPrompt = await context.Prompts.FindAsync(prompt.Id);
+            if (trackedPrompt is null)
+                throw new DbUpdateConcurrencyException();
+
+            context.Entry(trackedPrompt).CurrentValues.SetValues(prompt);
+
+            trackedPrompt.FrameworkId = FrameworkId!;
+            trackedPrompt.CategorieId = categorieId;
+            trackedPrompt.SubCategorieId = subCategorieId;
+
+
+            return await context.SaveChangesAsync() > 0;
+
+        }
+        public bool IsPrompt(int id)
+        {
+            return context.Prompts.Any(e => e.Id == id);
+        }
+
+        public async Task<Prompt?> GetByIdAsync(int id)
+        {
+            return await context.Prompts.FindAsync(id);
+        }
+
+    }
+}

@@ -1,0 +1,147 @@
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using PromptLibrary_Interfaces;
+using PromptLibrary_Modele.TableRef;
+using PromptLibrary_Web.Models;
+
+namespace PromptLibrary_Web.Controllers
+{
+    public class SubCategorieController(ISubCategorieService iss, IPromptServices ips) : Controller
+    {        
+            private readonly ISubCategorieService iSubCategorieSrv = iss;
+
+            public async Task<IActionResult> Index()
+            {
+                var frameworks = await iSubCategorieSrv.GetAllSubCategorieAsync();
+
+                var model = frameworks.Select(f => new SubCategorie
+                {
+                    Id = f.Id,
+                    Nom = f.Nom,
+                    Description = f.Description,
+                });
+
+                return View(model);
+            }
+
+            // GET: SubCategorieController/Details/5
+            public ActionResult Details(int id)
+            {
+                return View();
+            }
+
+        // GET: SubCategorieController/Create
+        public IActionResult Create()
+        {
+            return View(new SubCategorie());
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(SubCategorie subcategorie)
+        {
+            if (ModelState.IsValid)
+            {
+                await iss.CreateSubCategorieAsync(subcategorie);
+                return RedirectToAction(nameof(Index));
+            }
+            return View(subcategorie);
+        }
+
+        // GET: SubCategorieController/Edit/5
+        public async Task<IActionResult> Edit(int id)
+        {
+            var subcategorie = await iss.GetById(id);
+            if (subcategorie == null)
+                return NotFound();
+
+
+            var vm = new SubCategorie
+            {
+                Id = subcategorie.Id,
+                Nom = subcategorie.Nom,
+                Description = subcategorie.Description,
+                IsActive = subcategorie.IsActive,
+
+            };
+
+            return View(vm);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+
+        public async Task<IActionResult> Edit(SubCategorie vm)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var subCategorie = new SubCategorie
+                    {
+                        Id = vm.Id,
+                        Nom = vm.Nom,
+                        Description = vm.Description,
+                        IsActive = vm.IsActive,
+                    };
+
+                    await iss.UpdateSubCategorieAsync(subCategorie);
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!iss.IsSubCategorie(vm.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(vm);
+        }
+
+        // GET: SubCategorieController/Delete/5
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (!id.HasValue)
+            {
+                return NotFound();
+            }
+
+            var subcategorie = await iss.GetSubCategorieAsync(id.Value);
+            if (subcategorie == null)
+            {
+                return NotFound();
+            }
+
+            var prompts = await ips.GetPromptsWithSubCategorieAsync(subcategorie);
+
+            return View(new DeleteSubCategorieViewModel
+            {
+                SubCategorie = subcategorie,
+                Prompts = prompts
+            });
+        }
+
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var subcategorie = await iss.GetSubCategorieAsync(id);
+            if (subcategorie != null)
+            {
+                await iss.DeleteSubCategorieAsync(subcategorie);
+            }
+            return RedirectToAction(nameof(Index));
+        }
+    }
+    }
+

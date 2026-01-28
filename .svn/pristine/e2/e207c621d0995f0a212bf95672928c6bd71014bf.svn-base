@@ -1,0 +1,220 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
+using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
+using Microsoft.SemanticKernel;
+using PromptLibrary_DAL.Models;
+using PromptLibrary_Interfaces;
+using PromptLibrary_Modele;
+using PromptLibrary_Modele.TableRef;
+using PromptLibrary_Services;
+using PromptLibrary_Web.Models;
+
+namespace PromptLibrary_DAL.Controllers
+{
+    public class CatalogueController(IPromptServices ips, IFrameworkService ifs, ICategorieService ics, ISubCategorieService iss) : Controller
+    {
+        private readonly IPromptServices iPromptSrv = ips;
+
+        public async Task<ActionResult> Index()
+        {
+            List<Prompt> mesPrompts = await iPromptSrv.GetAllAsync();
+            CardsViewModel cardsViewModel_bdd = new()
+            {
+                allCards = [],
+                allCategories = [],
+                allSubCategories = [],
+                allframework = []
+            };
+            foreach (Prompt p in mesPrompts)
+            {
+                string subcatégorie = p.Categorie != null ? p.Categorie.Nom : "";
+                string subsubcatégorie = p.SubCategorie != null ? p.SubCategorie.Nom : "";
+                string frameworkcatégorie = p.Framework != null ? p.Framework.Nom : "";
+                string titre = p.Titre;
+                string contents = p.Content;
+
+                CardViewModel cardViewModel = new()
+                {
+                    Id = p.Id,
+                    Titre = titre,
+                    Categorie = subcatégorie,
+                    SubCategorie = subsubcatégorie,
+                    Framework = frameworkcatégorie,
+                    Content = contents,
+                    NombreDeLike = p.NombreDeLike
+
+                };
+                cardsViewModel_bdd.allCards.Add(cardViewModel);
+                if (!cardsViewModel_bdd.allCategories.Any(entry => entry.Contains(subcatégorie)))
+                {
+                    cardsViewModel_bdd.allCategories.Add(subcatégorie);
+                }
+                if (!cardsViewModel_bdd.allSubCategories.Any(entry => entry.Contains(subsubcatégorie)))
+                {
+                    cardsViewModel_bdd.allSubCategories.Add(subsubcatégorie);
+                }
+                if (!cardsViewModel_bdd.allframework.Any(entry => entry.Contains(frameworkcatégorie)))
+                {
+                    cardsViewModel_bdd.allframework.Add(frameworkcatégorie);
+                }
+            }
+            return View(cardsViewModel_bdd);
+        }
+
+        public async Task<IActionResult> Create()
+        {
+            var framework = await ifs.GetAllFrameworkAsync();
+            var categorie = await ics.GetAllCategorieAsync();
+            var subcategorie = await iss.GetAllSubCategorieAsync();
+            var vm = new CreateCardViewModel
+            {
+                LesFrameworks = new SelectList(framework, "Id", "Nom"),
+                LesCategories = new SelectList(categorie, "Id", "Nom"),
+                LesSubCategories = new SelectList(subcategorie, "Id", "Nom")
+            };
+
+            return View(vm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(CreateCardViewModel vm)
+        {
+            if (!ModelState.IsValid)
+            {
+                var frameworks = await ifs.GetAllFrameworkAsync();
+                var categories = await ics.GetAllCategorieAsync();
+                var subcategorie = await iss.GetAllSubCategorieAsync();
+
+                vm.LesFrameworks = new SelectList(frameworks, "Id", "Nom", vm.FrameworkId);
+                vm.LesCategories = new SelectList(categories, "Id", "Nom", vm.CategorieId);
+                vm.LesSubCategories = new SelectList(subcategorie, "Id", "Nom", vm.SubCategorieId);
+                return View(vm);
+            }
+
+            var prompt = new Prompt
+            {
+                Titre = vm.Titre,
+                CategorieId = vm.CategorieId,
+                SubCategorieId = vm.SubCategorieId,
+                FrameworkId = vm.FrameworkId,
+                Content = vm.Content,
+                IsActive = vm.IsActive
+            };
+
+            await ips.CreatePromptAsync(prompt);
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Edit(int id, int like)
+        {
+            var prompt = await ips.GetByIdAsync(id);
+
+            await ips.UpdateLikeAsync(id, like);
+
+            if (prompt == null)
+                return NotFound();
+
+            var frameworks = await ifs.GetAllFrameworkAsync();
+            var categories = await ics.GetAllCategorieAsync();
+            var subcategories = await iss.GetAllSubCategorieAsync();
+            var vm = new CreateCardViewModel
+            {
+                Id = prompt.Id,
+                Titre = prompt.Titre,
+                Content = prompt.Content,
+                IsActive = prompt.IsActive,
+                FrameworkId = prompt.FrameworkId,
+                CategorieId = prompt.CategorieId,
+                SubCategorieId = prompt.SubCategorieId,
+
+                LesFrameworks = new SelectList(frameworks, "Id", "Nom", prompt.FrameworkId),
+                LesCategories = new SelectList(categories, "Id", "Nom", prompt.CategorieId),
+                LesSubCategories = new SelectList(subcategories, "Id", "Nom", prompt.SubCategorieId)
+            };
+
+            return View(vm);
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> Vote(int id, int compteur)
+        {
+            var ok = await iPromptSrv.UpdateLikeAsync(id, compteur);
+            if (!ok) return NotFound();
+
+            var prompt = await iPromptSrv.GetByIdAsync(id);
+            return Json(new { success = true, likes = prompt!.NombreDeLike });
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(CreateCardViewModel vm)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var prompt = new Prompt
+                    {
+                        Id = vm.Id,
+                        Titre = vm.Titre,
+                        Content = vm.Content,
+                        IsActive = vm.IsActive
+                    };
+
+                    await ips.UpdatePromptAsync(prompt, vm.FrameworkId.Value, vm.CategorieId.Value, vm.SubCategorieId.Value);
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ips.IsPrompt(vm.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(vm);
+        }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (!id.HasValue)
+            {
+                return NotFound();
+            }
+
+            var prompt = await ips.GetPromptAsync(id.Value);
+            if (prompt == null)
+            {
+                return NotFound();
+            }
+
+            return View(prompt);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var prompt = await ips.GetPromptAsync(id);
+            if (prompt != null)
+            {
+                await ips.DeletePromptAsync(prompt);
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
+
+    }
+
+}
+

@@ -1,0 +1,28 @@
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+
+namespace PromptLibrary_DAL.Models
+{
+    public class CardsViewModel
+    {
+        public List<string> allCategories { get; set; }
+        public List<string> allSubCategories { get; set; }
+        public List<string> allframework { get; set; }
+        public List<CardViewModel> allCards { get; set; }
+        public CardsViewModel() { }
+    }
+
+    public class CardViewModel
+    {
+        public int Id { get; set; } 
+        public string Titre { get; set; }
+        public string Categorie { get; set; }
+        public string SubCategorie { get; set; }
+        public string Framework { get; set; }
+        public string Content { get; set; }
+        public int NombreDeLike { get; set; }
+
+        public CardViewModel() { }
+    }
+
+
+}

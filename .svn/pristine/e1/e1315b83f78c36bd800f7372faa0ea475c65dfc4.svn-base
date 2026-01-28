@@ -1,0 +1,64 @@
+﻿@model CardsViewModel
+@{
+    ViewData["Title"] = "Prompt Inspiration";
+}
+<header>
+    <div><h2>🎨 Prompts Library</h2></div>
+    <div class="filters">
+        <div id="count" style="margin:auto;"></div>
+        <input type="text" placeholder="Recherche prompts..." id="searchBar" />
+        <select id="categoryFilter">
+            <option value="all">Toutes catégories</option>
+            @foreach (string item in Model.allCategories)
+            {
+                <option value="@item">@item</option>
+            }
+        </select>
+        <select id="topicFilter">
+            <option value="all">Tous les sujets</option>
+            @foreach (string item in Model.allSubCategories)
+            {
+                <option value="@item">@item</option>
+            }
+        </select>
+        <select id="framworkFilter">
+            <option value="all">Tous les frameworks</option>
+            @foreach (string item in Model.allframework)
+            {
+                <option value="@item">@item</option>
+            }
+        </select>
+    </div>
+
+    <div>
+        <a asp-action="Create" id="new-btn">Créer</a>
+    </div>
+
+
+</header>
+
+<main class="gallery" id="gallery" style="padding: 50px;">
+
+    @foreach (CardViewModel item in Model.allCards)
+    {
+        <div class="prompt-card" data-category=@item.Categorie data-topic=@item.SubCategorie data-framework=@item.Framework>
+            <h2>@item.Titre</h2>
+            <div style="text-decoration: underline solid #b39ed2d6;margin-bottom: 8px;"><i>Preview : </i></div>
+            <div class="frameworkCurrent" style="display:none;">@item.Framework</div>
+            <p>@item.Content</p>
+            <a asp-action="Edit" asp-route-id="@item.Id" class="edit-btn">Voir</a>
+        </div>
+
+    }
+</main>
+
+
+<script src="~/js/catalogue.js"></script>
+@section additionnalhead {
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" asp-append-version="true" />
+}
+<script>
+
+
+        }
+</script>

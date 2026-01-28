@@ -1,0 +1,39 @@
+﻿using Microsoft.EntityFrameworkCore;
+using PromptLibrary_DAL;
+using PromptLibrary_Interfaces;
+using PromptLibrary_Modele;
+
+namespace PromptLibrary_Services
+{
+    public class PromptServices(PromptLibraryContext context) : IPromptServices
+    {
+        private readonly PromptLibraryContext ctx = context;
+
+        public async Task<List<Prompt>> GetAllAsync()
+        {
+            return await ctx.Prompts.Include(x => x.Categorie).Include(x => x.SubCategorie).Include(x => x.Framework).OrderBy(x => x.Titre).ToListAsync();
+        }
+        public async Task<List<Prompt>> GetAllActifAsync()
+        {
+            return await ctx.Prompts.Where(x => x.IsActive == true).OrderBy(x => x.Titre).ToListAsync();
+        }
+        public async Task<Prompt> GetById(int id)
+        {
+            return await ctx.Prompts.Include(x => x.Categorie).Include(x => x.SubCategorie).Include(x => x.Framework).SingleAsync(et => et.Id == id);
+        }
+        public async Task<bool> CreateOrUptdate(int id, string titre, bool isActive)
+        {
+            if (ctx.Prompts.Any(x => x.Id != id && x.Titre == titre))
+            {
+                return false;
+            }
+            Prompt prompt = id == 0 ? new Prompt() : await GetById(id);
+            prompt.Titre = titre;
+            prompt.IsActive = id == 0 || isActive;
+
+            ctx.Update(prompt);
+            bool retour = await ctx.SaveChangesAsync() > 0;
+            return retour;
+        }
+    }
+}

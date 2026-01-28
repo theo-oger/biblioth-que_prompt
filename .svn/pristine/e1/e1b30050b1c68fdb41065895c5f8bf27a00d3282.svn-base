@@ -1,0 +1,13 @@
+﻿using PromptLibrary_Modele;
+
+namespace PromptLibrary_Interfaces
+{
+    public interface IPromptServices
+    {
+        Task<List<Prompt>> GetAllAsync();
+        Task<List<Prompt>> GetAllActifAsync();
+        Task<Prompt> GetById(int id);
+        Task<bool> CreateOrUptdate(int id, string titre, bool isActive);
+
+    }
+}

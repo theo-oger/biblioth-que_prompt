@@ -1,0 +1,6 @@
+﻿namespace PromptLibrary_Web.Models
+{
+    public class FrameworkViewModel
+    {
+    }
+}

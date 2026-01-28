@@ -1,0 +1,55 @@
+﻿@model PromptLibrary_Web.Models.CreateCardViewModel
+
+@{
+    ViewData["Title"] = "Créer un prompt";
+}
+
+<h1 class="mb-3">@ViewData["Title"]</h1>
+<form asp-action="Create">
+
+    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+    <div class="mb-3">
+        <label asp-for="Titre" class="form-label"></label>
+        <input asp-for="Titre" class="form-control" />
+        <span asp-validation-for="Titre" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="CategorieId" class="form-label"></label>
+        <select asp-for="CategorieId" asp-items="Model.LesCategories" class="form-select" id="categorieSelect">
+            <option value="">-- Sélectionner --</option>
+        </select>
+        <span asp-validation-for="CategorieId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="SubCategorieId" class="form-label"></label>
+        <select asp-for="SubCategorieId" asp-items="Model.LesSubCategories" class="form-select" id="subCategorieSelect">
+            <option value="">-- Sélectionner --</option>
+        </select>
+        <span asp-validation-for="SubCategorieId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="FrameworkId" class="form-label"></label>
+        <select asp-for="FrameworkId" asp-items="Model.LesFrameworks" class="form-select">
+            <option value="">-- Sélectionner --</option>
+        </select>
+        <span asp-validation-for="FrameworkId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Content" class="form-label"></label>
+        <textarea asp-for="Content" class="form-control" rows="6"></textarea>
+        <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
+
+
+    <div class="form-group">
+        <input type="submit" value="Créer" class="btn btn-primary" />
+    </div>
+</form>
+@section additionnalhead {
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" asp-append-version="true" />
+}

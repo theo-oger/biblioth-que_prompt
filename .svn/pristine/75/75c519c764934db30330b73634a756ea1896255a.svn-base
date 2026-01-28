@@ -1,0 +1,155 @@
+﻿
+<h1>Petit plus</h1>
+
+<p>
+    L’intelligence artificielle, on en parle partout : dans nos vies, à la machine à café, et bien sûr dans le monde de l’entreprise.
+    Certains parmi vous pensent peut‑être que c’est une perte de temps, une aliénation… ou peut‑être même que c’est un peu flippant ?
+</p>
+<p>
+    Mais rassurez-vous : l’IA n’est pas là pour vous remplacer (elle n’a même pas de badge d’entreprise), mais pour vous assister, vous aider à être plus productifs.
+    Et ça, les entreprises adorent… la <i>productivité</i>.
+</p>
+<p>
+    Alors pourquoi ne pas en profiter pour booster la vôtre, sans vous fatiguer ?
+    L’IA peut être un énorme gain de temps — je vous l’ai déjà expliqué — mais aussi une énorme perte de temps si on l’utilise mal : des tâches simples que vous auriez faites en 10 minutes, et l’IA met 20 minutes à mal interpréter (rappel : ce n’est qu’un abus de langage, une IA ne “comprend” absolument rien ).
+</p>
+<p>
+    La clé, c’est simplement d’apprendre à bien formuler vos demandes pour qu’elle soit vraiment efficace.
+    Je vais donc vous partager quelques petits tips pour optimiser votre travail… et aller prendre un café pendant que l’IA s’occupe d’une tâche monotone qui vous aurait pris 3 heures.
+</p>
+
+
+<h1>Tips Copilot</h1>
+
+<section>
+    <h2> 1. Comprendre comment (ne) pense (pas) l’IA</h2>
+    <p>
+        Avant tout : une IA ne <i>comprend</i> rien. Rien du tout.<br>
+        Elle ne fait que prédire ce que vous voulez dire.
+    </p>
+    <p>
+         Si votre demande est vague → réponse vague.<br>
+         Si votre demande est précise → réponse excellente.
+    </p>
+    <p>
+        Parlez à Copilot comme à un stagiaire très motivé, très rapide… mais qui prend absolument tout au pied de la lettre.
+    </p>
+</section>
+
+<section>
+    <h2> 2. La formulation : 80% du résultat</h2>
+    <p>Un bon prompt contient toujours :</p>
+    <ul>
+        <li><strong>Contexte :</strong> Qui vous êtes, pour quoi faire, pour qui.</li>
+        <li><strong>Objectif :</strong> Qu’attendez-vous comme résultat ?</li>
+        <li><strong>Contraintes :</strong> Ton, style, longueur, limites.</li>
+        <li><strong>Format :</strong> Tableau ? Texte ? Liste ? Étapes ?</li>
+    </ul>
+
+    <p><strong>Astuce :</strong> Donnez des exemples ! L’IA adore les exemples.</p>
+</section>
+
+<section>
+    <h2> 3. Frameworks de prompt </h2>
+
+    <h3> Framework R.O.C.E.</h3>
+    <ul>
+        <li><strong>Rôle</strong></li>
+        <li><strong>Objectif</strong></li>
+        <li><strong>Contraintes</strong></li>
+        <li><strong>Exemples / Format</strong></li>
+    </ul>
+
+    <h3> Framework A.C.E.</h3>
+    <ul>
+        <li><strong>Action</strong> attendue</li>
+        <li><strong>Contexte</strong></li>
+        <li><strong>Exigences / style</strong></li>
+    </ul>
+
+    <h3> Framework C.R.A.F.T.</h3>
+    <ul>
+        <li><strong>Contexte</strong></li>
+        <li><strong>Rôle</strong> de l’IA</li>
+        <li><strong>Action</strong></li>
+        <li><strong>Format</strong></li>
+        <li><strong>Ton / style</strong></li>
+    </ul>
+</section>
+
+<section>
+    <h2> 4. Le secret : l'itération</h2>
+    <p>
+        Un bon prompt ne marche pas toujours du premier coup. C’est normal !<br>
+        L’IA fonctionne comme une conversation.
+    </p>
+    <ol>
+        <li>Demandez une première version.</li>
+        <li>Dites ce que vous aimez / n’aimez pas.</li>
+        <li>Affinez.</li>
+        <li>Demandez une version améliorée.</li>
+        <li>Obtenez votre résultat parfait.</li>
+    </ol>
+</section>
+
+<section>
+    <h2> 5. Utiliser Copilot comme un vrai collaborateur</h2>
+    <p>L’IA peut faire bien plus que “produire un texte”. Essayez :</p>
+    <ul>
+        <li>“Améliore ce prompt et rends-le plus clair.”</li>
+        <li>“Reformule ma question pour me dire ce que tu as compris.”</li>
+        <li>“Propose 5 angles différents pour ce sujet.”</li>
+        <li>“Liste ce que j'ai oublié de demander.”</li>
+        <li>“Donne-moi une version plus simple / plus longue / plus fun / plus professionnelle.”</li>
+    </ul>
+
+    <p><strong>Astuce :</strong> demander “Reformule ma demande en plus clair” permet de vérifier si Copilot a bien compris avant de se lancer.</p>
+</section>
+
+<section>
+    <h2> 6. Le piège : laisser l’IA deviner</h2>
+    <p><strong>À éviter absolument :</strong></p>
+    <ul>
+        <li>❌ “Fais-moi un mail.”</li>
+        <li>❌ “Rends-le meilleur.”</li>
+        <li>❌ “Crée une procédure.”</li>
+    </ul>
+
+    <p><strong>À faire :</strong></p>
+    <ul>
+        <li>✔️ “Rédige un mail pour annoncer X, 100 mots, ton professionnel.”</li>
+        <li>✔️ “Améliore ce texte : plus clair, phrases courtes & ton neutre.”</li>
+        <li>✔️ “Crée une procédure en 5 étapes avec titres + exemples.”</li>
+    </ul>
+</section>
+
+<section>
+    <h2> 7. Tips avancés</h2>
+
+    <h3> Mode “Chain-of-thought léger”</h3>
+    <p>
+        “Explique ton raisonnement en 3 étapes maximum.”
+    </p>
+
+    <h3>Mode “Critique”</h3>
+    <p>
+        “Analyse ta réponse, liste 3 points à améliorer, puis propose une version améliorée.”
+    </p>
+
+    <h3> Rôle expert</h3>
+    <p>
+        “Tu es expert en cybersécurité depuis 15 ans. Analyse...”<br>
+        Très puissant.
+    </p>
+</section>
+
+
+<p>
+    Pour conclure, vous pouvez le voir : l’IA est un outil très puissant, mais aussi très simple d’accès.
+    Elle peut vous faire gagner de précieuses minutes — et soyons honnêtes, ces minutes comptent beaucoup dans nos journées.
+</p>
+
+<p>
+    Et rappelez-vous : l’IA est votre compagnon, pas votre remplaçant.
+    Restez humains, curieux, créatifs… c’est ça qui fait toute la différence ;)
+</p>
